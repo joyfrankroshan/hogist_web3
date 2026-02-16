@@ -1,0 +1,74 @@
+/* ========== LOGO STRIP SECTION ========== */
+.logoipsum {
+  width: 100%;
+  background: #f6f1e6;
+  padding: 50px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* fade edges */
+.logoipsum::before,
+.logoipsum::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 2;
+}
+
+.logoipsum::before {
+  left: 0;
+  background: linear-gradient(to right, #f6f1e6 0%, transparent 100%);
+}
+
+.logoipsum::after {
+  right: 0;
+  background: linear-gradient(to left, #f6f1e6 0%, transparent 100%);
+}
+
+/* ========== LOGO TRACK ========== */
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 90px;
+  width: max-content;
+  animation: logoScroll 18s linear infinite;
+}
+
+/* logos */
+.logo-track img {
+  height: 50px;
+  opacity: 0.75;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+/* hover effect */
+.logo-track img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* ========== ANIMATION ========== */
+@keyframes logoScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .logo-track {
+    gap: 50px;
+  }
+
+  .logo-track img {
+    height: 42px;
+  }
+}

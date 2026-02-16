@@ -1,0 +1,170 @@
+.popularmenu {
+  background: #0f1b1b;
+  padding: 80px 8%;
+  color: #fff;
+}
+
+/* ---------- HEADER SECTION ---------- */
+.popularmenu-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 60px;
+  gap: 40px;
+}
+
+.popularmenu-text h5 {
+  color: #ff7a3d;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.popularmenu-text h2 {
+  font-size: 42px;
+  line-height: 1.2;
+  max-width: 520px;
+}
+
+.popularmenu-text h2 span {
+  color: #ffb38a;
+}
+
+/* ---------- ROUND CUSTOMER SECTION ---------- */
+.popularmenu-round {
+  max-width: 380px;
+}
+
+.popularmenu-round img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-right: -10px;
+}
+
+.popularmenu-round h2 {
+  font-size: 20px;
+  margin: 15px 0 10px;
+}
+
+.popularmenu-round p {
+  font-size: 14px;
+  color: #cfcfcf;
+  line-height: 1.6;
+}
+
+.customer-choice {
+  max-width: 520px;
+  color: #eaeaea;
+}
+
+.customer-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Overlapping profile images */
+.customer-images img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-right: -14px;
+}
+
+/* Stars + text */
+.customer-images {
+  display: flex;
+  align-items: center;
+}
+
+.customer-images img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-right: -14px;
+}
+
+.customer-rating h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Description */
+.customer-choice p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #cfcfcf;
+}
+
+
+/* ---------- CARDS ---------- */
+.popularmenu-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+
+.popular-card {
+  background: #172828;
+  padding: 25px;
+  border-radius: 22px;
+  transition: transform 0.3s ease;
+}
+
+.popular-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Image style */
+.popular-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 4px solid #fff;
+  margin-bottom: 20px;
+}
+
+.popular-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.popular-card p {
+  font-size: 14px;
+  color: #cfcfcf;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* ---------- CHECK LIST ---------- */
+.popular-checkbok {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+.stars{
+    color:#f0ad4e
+}
+.popular-checkbok p::before {
+  content: "✔";
+  color: #ff7a3d;
+  margin-right: 8px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 992px) {
+  .popularmenu-text {
+    flex-direction: column;
+  }
+
+  .popularmenu-cards {
+    grid-template-columns: 1fr;
+  }
+}

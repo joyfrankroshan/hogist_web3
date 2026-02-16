@@ -1,0 +1,99 @@
+.getVoucher {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* background */
+.getVoucher-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.getVoucher-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* overlay */
+.getVoucher::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+}
+
+/* content */
+.getVoucher-text {
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.getVoucher-round {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.getVoucher-round img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  margin-left: -10px;
+}
+
+.getVoucher-text h2 {
+  font-size: 48px;
+  line-height: 1.3;
+  margin-bottom: 18px;
+}
+
+.getVoucher-text h2 span {
+  color: #ff9c5a;
+}
+
+.getVoucher-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #e0e0e0;
+  margin-bottom: 40px;
+}
+
+.getVoucher-email {
+  background: #ffffff;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  max-width: 520px;
+  margin: auto;
+}
+
+.getVoucher-email input {
+  border: none;
+  outline: none;
+  padding: 14px 20px;
+  flex: 1;
+  font-size: 15px;
+  border-radius: 50px;
+}
+
+.getVoucher-email button {
+  background: #e66a00;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 15px;
+  cursor: pointer;
+}

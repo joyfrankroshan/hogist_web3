@@ -1,0 +1,145 @@
+/* SECTION */
+.nutritiousmeals {
+  background: #f6efe6;
+  padding: 80px 10%;
+}
+/*  */
+/*  */
+/* CONTAINER */
+.nm-container {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+/* LEFT */
+.nm-left {
+  flex: 1;
+}
+
+/* SUBTITLE */
+.nm-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ff7a2f;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.nm-subtitle::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: #ff7a2f;
+  border-radius: 50%;
+}
+
+/* TITLE */
+.nm-title {
+  font-size: 44px;
+  font-weight: 800;
+  color: #0f2a26;
+  margin-bottom: 20px;
+}
+
+.nm-title span {
+  color: #ff9b6a;
+}
+
+/* DESCRIPTION */
+.nm-desc {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* BUTTON STACK */
+.nm-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* PILL BUTTON */
+.nm-pill {
+  position: relative;
+  padding: 16px 28px;
+  border-radius: 40px;
+  border: 2px solid #0f2a26;
+  background: transparent;
+  color: #0f2a26;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
+  transition: color 0.4s ease;
+}
+
+/* SLIDING GREEN BG */
+.nm-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #0f2a26;
+  transform: translateX(-110%);
+  transition: transform 0.45s ease;
+  z-index: -1;
+  border-radius: 40px;
+}
+
+/* ACTIVE STATE */
+.nm-pill.active::before {
+  transform: translateX(0);
+}
+
+.nm-pill.active {
+  color: #fff;
+}
+
+/* PRIMARY (last one slightly stronger if needed) */
+.nm-pill.primary {
+  font-size: 17px;
+}
+
+/* RIGHT IMAGE */
+.nm-right {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+}
+
+.nm-right img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+/* TWO IMAGES */
+.nm-right.double img {
+  width: 50%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .nm-container {
+    flex-direction: column;
+  }
+
+  .nm-title {
+    font-size: 34px;
+  }
+
+  .nm-right {
+    flex-direction: column;
+  }
+
+  .nm-right.double img {
+    width: 100%;
+    height: 300px;
+  }
+}
