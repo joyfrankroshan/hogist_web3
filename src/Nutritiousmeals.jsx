@@ -10,8 +10,12 @@ import img5 from "./assets/nutriousmeals5.jpg";
 function NutritiousMeals() {
   const [activeImages, setActiveImages] = useState([img4]);
   const [activeIndex, setActiveIndex] = useState(3);
-//
-// 
+
+  const handleClick = (index, images) => {
+    setActiveIndex(index);
+    setActiveImages(images);
+  };
+
   return (
     <section className="nutritiousmeals">
       <div className="nm-container">
@@ -26,60 +30,45 @@ function NutritiousMeals() {
           </h2>
 
           <p className="nm-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-            tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Ut elit tellus, luctus nec ullamcorper mattis.
           </p>
 
-          {/* ALL BUTTONS */}
           <div className="nm-features">
-
             <button
-              className={`nm-pill ${activeIndex === 0 ? "active" : ""}`}
-              onMouseEnter={() => {
-                setActiveIndex(0);
-                setActiveImages([img1]);
-              }}
+              className={`nm-pill ${activeIndex === 0 ? "selected" : ""}`}
+              onClick={() => handleClick(0, [img1])}
             >
               Healthy And Clean Food
             </button>
 
             <button
-              className={`nm-pill ${activeIndex === 1 ? "active" : ""}`}
-              onMouseEnter={() => {
-                setActiveIndex(1);
-                setActiveImages([img2, img5]);
-              }}
+              className={`nm-pill ${activeIndex === 1 ? "selected" : ""}`}
+              onClick={() => handleClick(1, [img2, img5])}
             >
               Good For Any People
             </button>
 
             <button
-              className={`nm-pill ${activeIndex === 2 ? "active" : ""}`}
-              onMouseEnter={() => {
-                setActiveIndex(2);
-                setActiveImages([img3]);
-              }}
+              className={`nm-pill ${activeIndex === 2 ? "selected" : ""}`}
+              onClick={() => handleClick(2, [img3])}
             >
               Delivery Catering Ready
             </button>
 
             <button
-              className={`nm-pill primary ${activeIndex === 3 ? "active" : ""}`}
-              onMouseEnter={() => {
-                setActiveIndex(3);
-                setActiveImages([img4]);
-              }}
+              className={`nm-pill primary ${activeIndex === 3 ? "selected" : ""}`}
+              onClick={() => handleClick(3, [img4])}
             >
               Clean Food Grade Certification
             </button>
-
           </div>
         </div>
 
         {/* RIGHT */}
         <div className={`nm-right ${activeImages.length === 2 ? "double" : ""}`}>
-          {activeImages.map((img, index) => (
-            <img key={index} src={img} alt="Nutritious meals" />
+          {activeImages.map((img, i) => (
+            <img key={i} src={img} alt="Nutritious meals" />
           ))}
         </div>
 

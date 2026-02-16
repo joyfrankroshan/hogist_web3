@@ -28,13 +28,18 @@
   background: linear-gradient(to left, #f6f1e6 0%, transparent 100%);
 }
 
-/* ========== LOGO TRACK ========== */
+/* ========== LOGO TRACK (CYCLIC) ========== */
 .logo-track {
   display: flex;
   align-items: center;
-  gap: 90px;
+  gap: 160px;                 /* 🔥 MORE SPACE */
   width: max-content;
-  animation: logoScroll 18s linear infinite;
+  animation: logoScroll 22s linear infinite;
+}
+
+/* pause animation on hover */
+.logoipsum:hover .logo-track {
+  animation-play-state: paused;
 }
 
 /* logos */
@@ -43,16 +48,17 @@
   opacity: 0.75;
   filter: grayscale(100%);
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 /* hover effect */
 .logo-track img:hover {
   opacity: 1;
   filter: grayscale(0%);
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
-/* ========== ANIMATION ========== */
+/* ========== CYCLIC ANIMATION ========== */
 @keyframes logoScroll {
   from {
     transform: translateX(0);
@@ -63,12 +69,28 @@
 }
 
 /* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .logo-track {
+    gap: 120px;
+  }
+}
+
 @media (max-width: 768px) {
   .logo-track {
-    gap: 50px;
+    gap: 90px;
   }
 
   .logo-track img {
     height: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-track {
+    gap: 70px;
+  }
+
+  .logo-track img {
+    height: 36px;
   }
 }

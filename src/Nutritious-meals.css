@@ -3,8 +3,7 @@
   background: #f6efe6;
   padding: 80px 10%;
 }
-/*  */
-/*  */
+
 /* CONTAINER */
 .nm-container {
   display: flex;
@@ -22,7 +21,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #ff7a2f;
+  color: gray;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 14px;
@@ -56,30 +55,32 @@
   margin-bottom: 30px;
 }
 
-/* BUTTON STACK */
+/* FEATURES */
 .nm-features {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* PILL BUTTON */
+/* PILL */
 .nm-pill {
   position: relative;
   padding: 16px 28px;
   border-radius: 40px;
-  border: 2px solid #0f2a26;
+  /* border: 2px solid #6ca098; */
+  border: unset;
   background: transparent;
-  color: #0f2a26;
+  color: #0f2a26;          /* black text */
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   text-align: left;
   overflow: hidden;
-  transition: color 0.4s ease;
+  z-index: 1;
+  transition: color 0.3s ease;
 }
 
-/* SLIDING GREEN BG */
+/* GREEN SLIDE BACKGROUND */
 .nm-pill::before {
   content: "";
   position: absolute;
@@ -87,29 +88,30 @@
   background: #0f2a26;
   transform: translateX(-110%);
   transition: transform 0.45s ease;
-  z-index: -1;
   border-radius: 40px;
+  z-index: -1;
 }
 
-/* ACTIVE STATE */
-.nm-pill.active::before {
+/* ✅ CLICKED STATE ONLY */
+.nm-pill.selected::before {
   transform: translateX(0);
 }
 
-.nm-pill.active {
-  color: #fff;
+.nm-pill.selected {
+  color: #ffffff;
 }
 
-/* PRIMARY (last one slightly stronger if needed) */
+/* PRIMARY */
 .nm-pill.primary {
   font-size: 17px;
 }
 
-/* RIGHT IMAGE */
+/* RIGHT IMAGES */
 .nm-right {
   flex: 1;
   display: flex;
   gap: 20px;
+  /* flex-direction: column; */
 }
 
 .nm-right img {
@@ -119,7 +121,7 @@
   border-radius: 30px;
 }
 
-/* TWO IMAGES */
+/* DOUBLE IMAGE */
 .nm-right.double img {
   width: 50%;
 }

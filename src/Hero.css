@@ -11,16 +11,32 @@ img {
   height: auto;
 }
 
-
+/* ================= HERO ================= */
 
 .hero {
   position: relative;
   min-height: 100vh;
   padding: 50px 90px;
   color: #fff;
-  background-size: cover;
-  background-position: center;
   overflow: hidden;
+  background-size: 120%;
+  background-position: center;
+  animation: zoomSlide 4s linear infinite;
+}
+
+@keyframes zoomSlide {
+  0% {
+    background-size: 105%;
+    background-position: 50% 50%;
+  }
+  50% {
+    background-size: 112%;
+    background-position: 60% 50%;
+  }
+  100% {
+    background-size: 120%;
+    background-position: 70% 50%;
+  }
 }
 
 /* OVERLAY */
@@ -37,17 +53,20 @@ img {
   z-index: 0;
 }
 
-/* LOGO */
+/* ================= LOGO ================= */
+
 .herologo {
   position: relative;
   z-index: 2;
   padding-top: 55px;
 }
+
 .herologo img {
   height: 42px;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
+
 .heronav {
   position: absolute;
   top: 50px;
@@ -57,12 +76,15 @@ img {
   z-index: 2;
   padding-top: 45px;
 }
+
 .heronav a {
   color: #eaeaea;
 }
+
 .heronav a:first-child {
   color: #ff7a18;
 }
+
 .heronav-button {
   background: #ff7a18;
   border: none;
@@ -72,7 +94,77 @@ img {
   cursor: pointer;
 }
 
-/* HAMBURGER */
+/* ================= DROPDOWNS ================= */
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-link {
+  cursor: pointer;
+  color: #eaeaea;
+  padding-right: 18px;
+  position: relative;
+}
+
+/* DOWN ARROW */
+.nav-link::after {
+  content: "⌄";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .nav-link::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* DROPDOWN BOX */
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: #ffffff;
+  padding: 12px 0;
+  border-radius: 14px;
+  min-width: 190px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* DROPDOWN LINKS */
+.dropdown-menu a {
+  display: block;
+  padding: 12px 22px;
+  color: #777;
+  font-size: 15px;
+  border-radius: 8px;
+  margin: 4px 8px;
+  transition: 0.25s;
+}
+
+/* ITEM HOVER */
+.dropdown-menu a:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* SHOW */
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ================= HAMBURGER ================= */
+
 .hamburger {
   position: absolute;
   top: 55px;
@@ -85,13 +177,15 @@ img {
   cursor: pointer;
   z-index: 3;
 }
+
 .hamburger span {
   height: 3px;
   background: #fff;
   border-radius: 3px;
 }
 
-/* MOBILE MENU */
+/* ================= MOBILE MENU ================= */
+
 .mobile-menu {
   position: absolute;
   top: 100px;
@@ -108,14 +202,17 @@ img {
   transition: 0.3s ease;
   z-index: 3;
 }
+
 .mobile-menu.open {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
 }
+
 .mobile-menu a {
   color: #fff;
 }
+
 .mobile-menu button {
   background: #ff7a18;
   border: none;
@@ -124,19 +221,26 @@ img {
   color: #fff;
 }
 
-/* HERO TEXT */
+/* ================= HERO TEXT ================= */
+
 .herotext {
   position: relative;
   z-index: 2;
   max-width: 680px;
   margin-top: 150px;
 }
+
 .herotext h2 {
   font-size: 64px;
   line-height: 1.15;
 }
 
-/* CTA */
+.herotext h2 span {
+  color: #ff7a18;
+}
+
+/* ================= CTA ================= */
+
 .herobutton {
   position: relative;
   z-index: 2;
@@ -144,6 +248,7 @@ img {
   display: flex;
   gap: 28px;
 }
+
 .herobutton button {
   background: #fff;
   color: #000;
@@ -152,11 +257,13 @@ img {
   border: none;
 }
 
-/* TRUST */
+/* ================= TRUST ================= */
+
 .heroround {
   display: flex;
   align-items: center;
 }
+
 .heroround img {
   width: 56px;
   height: 56px;
@@ -164,11 +271,13 @@ img {
   border: 3px solid #fff;
   margin-left: -18px;
 }
+
 .heroround img:first-child {
   margin-left: 0;
 }
 
-/* STATS */
+/* ================= STATS ================= */
+
 .herostats {
   position: absolute;
   right: 90px;
@@ -178,103 +287,313 @@ img {
   gap: 22px;
   z-index: 2;
 }
+
+.herostats h3 {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
 .stat {
   padding: 26px;
   border-radius: 22px;
 }
+
 .stat.dark {
   background: #183332;
 }
+
 .stat.light {
   background: #f6f1e6;
   color: #000;
 }
 
-/* RESPONSIVE */
+/* ================= RESPONSIVE ================= */
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hamburger {
+    top: 95px;   /* 👈 move it down */
+  }
+  .hero {
+    padding: 30px 20px;
+  }
+
+  .herotext {
+    margin-top: 110px;
+  }
+
+  .herotext h2 {
+    font-size: 30px;
+  }
+
+  .herobutton {
+    flex-direction: column;
+  }
+
+  .herostats {
+    position: static;
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+  }
+
+  .herostats h3 {
+    font-size: 28px;
+  }
+}
+
+/* Small tablets */
+@media (max-width: 640px) {
+  .hero {
+    padding: 40px 30px;
+  }
+
+  .herotext h2 {
+    font-size: 34px;
+  }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
   .heronav {
     display: none;
   }
+
   .hamburger {
     display: flex;
   }
+
   .herotext h2 {
     font-size: 42px;
   }
-  .herostats {
-    position: static;
-    margin-top: 60px;
-  }
-}
-@media (max-width: 480px) {
-  .herobutton {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .heroround p {
-    font-size: 13px;
-  }
-
-  .herostats {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-}
-
-
-@media (max-width: 640px) {
-  .herotext {
-    margin-top: 100px;
-  }
-
-  .heroround img {
-    width: 46px;
-    height: 46px;
-  }
-}
-
-
-@media (max-width: 768px) {
-  .heronav {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
 
   .herostats {
     position: static;
-    margin-top: 50px;
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 50px;
   }
 }
 
-
+/* Laptops */
 @media (max-width: 1024px) {
+  .hero {
+    padding: 60px;
+  }
+
+  .heronav {
+    right: 60px;
+  }
+
   .herostats {
     right: 40px;
     bottom: 40px;
   }
 }
 
-
+/* Large screens */
 @media (min-width: 1440px) {
   .hero {
     padding-left: 140px;
     padding-right: 140px;
   }
 
-  .herotext {
-    max-width: 760px;
+  .herotext h2 {
+    font-size: 68px;
   }
 }
-
-
+/* ================= MOBILE MENU – DESKTOP STYLE ================= */
 @media (max-width: 768px) {
-  .herostats {
-    position: static;
+
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;              /* WHITE PAGE */
+    padding: 120px 30px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  /* MOBILE MENU LINKS (GREY TEXT) */
+  .mobile-menu a {
+    color: #777777;
+    font-size: 18px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    transition: 0.25s ease;
+  }
+
+  /* HOVER / TOUCH EFFECT (BLACK + WHITE) */
+  .mobile-menu a:active,
+  .mobile-menu a:hover {
+    background: #000000;
+    color: #ffffff;
+  }
+
+  /* MOBILE BUTTON */
+  .mobile-menu button {
+    margin-top: 20px;
+    background: #ff7a18;
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 16px;
   }
 }
+
+
+/* ================= MOBILE MENU WITH DESKTOP ARROWS ================= */
+@media (max-width: 768px) {
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: #ffffff;
+    padding: 120px 24px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  /* MOBILE MENU LINKS */
+  .mobile-menu a,
+  .mobile-menu span {
+    position: relative;
+    color: #777;
+    font-size: 18px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    transition: 0.25s ease;
+  }
+
+  /* ADD DOWN ARROW (LIKE DESKTOP) */
+  .mobile-menu span::after {
+    content: "⌄";
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+  }
+
+  /* TOUCH / HOVER EFFECT */
+  .mobile-menu a:hover,
+  .mobile-menu a:active,
+  .mobile-menu span:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  /* BUTTON */
+  .mobile-menu button {
+    margin-top: 20px;
+    background: #ff7a18;
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 16px;
+  }
+}
+
+/* ================= MOBILE MENU – DESKTOP ARROW STYLE ================= */
+@media (max-width: 768px) {
+
+  /* MOBILE MENU BASE */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: #ffffff;
+    padding: 120px 24px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  /* NORMAL LINKS */
+  .mobile-menu a {
+    color: #777;
+    font-size: 18px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    transition: 0.25s ease;
+  }
+
+  /* DROPDOWN PARENT (WITH ARROW) */
+  .mobile-nav-link {
+    position: relative;
+    color: #777;
+    font-size: 18px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  /* DOWN ARROW (SAME AS DESKTOP) */
+  .mobile-nav-link::after {
+    content: "⌄";
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    transition: transform 0.3s ease;
+  }
+
+  /* HOVER / TOUCH EFFECT */
+  .mobile-menu a:hover,
+  .mobile-menu a:active,
+  .mobile-nav-link:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  /* BUTTON */
+  .mobile-menu button {
+    margin-top: 20px;
+    background: #ff7a18;
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 16px;
+  }
+}
+
 

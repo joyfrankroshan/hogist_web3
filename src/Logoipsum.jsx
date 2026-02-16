@@ -16,10 +16,7 @@ function Logoipsum() {
 
 
 
-        <img src={logoipsum1} alt="logo1" />
-        <img src={logoipsum2} alt="logo2" />
-        <img src={logoipsum3} alt="logo3" />
-        <img src={logoipsum4} alt="logo4" />
+       
 
 
         
