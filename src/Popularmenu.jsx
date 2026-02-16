@@ -1,6 +1,6 @@
 import React from 'react'
 import './Popularmenu.css'
-import popularimg1 from './assets/popularmenu1.jpg'
+import popularimg1 from './assets/Popularmenu1.jpg'
 import popularimg2 from './assets/popularmenu2.jpg'
 import popularimg3 from './assets/popularmenu3.jpg'
 import heroround1 from "./assets/heroround1.jpg";
