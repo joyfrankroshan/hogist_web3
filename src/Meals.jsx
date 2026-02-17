@@ -1,10 +1,42 @@
 import React from "react";
+import { motion } from "framer-motion";
 import "./Meals.css";
+
+/* TEXT FROM LEFT */
+const textLeft = {
+  hidden: { x: -80, opacity: 0 },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.9, ease: "easeOut" },
+  },
+};
+
+/* CARD FROM BOTTOM (STAGGER) */
+const cardUp = {
+  hidden: { y: 80, opacity: 0 },
+  show: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.2 + i * 0.2,
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  }),
+};
 
 function Meals() {
   return (
-    <div className="meals">
-      <div className="meals-text">
+    <section className="meals">
+      {/* TEXT */}
+      <motion.div
+        className="meals-text"
+        variants={textLeft}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.4 }}
+      >
         <h5>Meals Package</h5>
         <h3>
           Flexible Pricing Options For <span>Healthy food</span> package.
@@ -13,11 +45,19 @@ function Meals() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
           tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
         </p>
-      </div>
+      </motion.div>
 
+      {/* CARDS */}
       <div className="meals-card">
-        {/* Basic */}
-        <div className="meals-card1">
+        {/* BASIC */}
+        <motion.div
+          className="meals-card1"
+          variants={cardUp}
+          custom={0}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h4>Basic Plan</h4>
           <p>A small river named Duden flows by their place and supplies</p>
           <h2>$ 59.29 / Month</h2>
@@ -27,10 +67,17 @@ function Meals() {
           <a href="#">Moneyback Guarantee</a>
           <a href="#">Customer Support</a>
           <button>Get A Quote</button>
-        </div>
+        </motion.div>
 
-        {/* Standard */}
-        <div className="meals-card2">
+        {/* STANDARD */}
+        <motion.div
+          className="meals-card2"
+          variants={cardUp}
+          custom={1}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <span className="popular-badge">Most Popular</span>
           <h4>Standard Plan</h4>
           <p>A small river named Duden flows by their place and supplies</p>
@@ -41,10 +88,17 @@ function Meals() {
           <a href="#">Customized Meals</a>
           <a href="#">Healthy Guarantee</a>
           <button>Get A Quote</button>
-        </div>
+        </motion.div>
 
-        {/* Premium */}
-        <div className="meals-card3">
+        {/* PREMIUM */}
+        <motion.div
+          className="meals-card3"
+          variants={cardUp}
+          custom={2}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h4>Premium Plan</h4>
           <p>A small river named Duden flows by their place and supplies</p>
           <h2>$ 149 / Month</h2>
@@ -54,9 +108,9 @@ function Meals() {
           <a href="#">Food Savings Guarantee</a>
           <a href="#">Smart Delivery</a>
           <button>Get A Quote</button>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
 

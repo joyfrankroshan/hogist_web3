@@ -40,6 +40,15 @@
   line-height: 1.7;
 }
 
+.recepe-text,
+.recepe-card1,
+.recepe-card2,
+.recepe-card3,
+.recepe-button {
+  will-change: transform, opacity;
+}
+
+
 /* ===== CARD WRAPPER ===== */
 .recepe-card {
   margin-top: 70px;

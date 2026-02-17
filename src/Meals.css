@@ -201,6 +201,12 @@
     transform: none;
   }
 }
+.meals-card1,
+.meals-card2,
+.meals-card3 {
+  will-change: transform, opacity;
+}
+
 
 /* Mobile */
 @media (max-width: 600px) {

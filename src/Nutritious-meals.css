@@ -67,20 +67,18 @@
   position: relative;
   padding: 16px 28px;
   border-radius: 40px;
-  /* border: 2px solid #6ca098; */
-  border: unset;
+  border: none;
   background: transparent;
-  color: #0f2a26;          /* black text */
+  color: #0f2a26;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   text-align: left;
   overflow: hidden;
   z-index: 1;
-  transition: color 0.3s ease;
 }
 
-/* GREEN SLIDE BACKGROUND */
+/* SLIDE BG */
 .nm-pill::before {
   content: "";
   position: absolute;
@@ -92,7 +90,6 @@
   z-index: -1;
 }
 
-/* ✅ CLICKED STATE ONLY */
 .nm-pill.selected::before {
   transform: translateX(0);
 }
@@ -101,17 +98,11 @@
   color: #ffffff;
 }
 
-/* PRIMARY */
-.nm-pill.primary {
-  font-size: 17px;
-}
-
 /* RIGHT IMAGES */
 .nm-right {
   flex: 1;
   display: flex;
   gap: 20px;
-  /* flex-direction: column; */
 }
 
 .nm-right img {

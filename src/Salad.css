@@ -10,9 +10,10 @@
   justify-content: flex-end;
   padding: 0 8%;
   color: white;
+  overflow: hidden;
 }
 
-/* Dark overlay */
+/* DARK OVERLAY */
 .salad-overlay {
   position: absolute;
   inset: 0;
@@ -24,6 +25,7 @@
   z-index: 1;
 }
 
+/* TEXT */
 .salad-text {
   position: relative;
   z-index: 2;
@@ -48,7 +50,7 @@
   margin-bottom: 30px;
 }
 
-/* Button style */
+/* BUTTON */
 .salad-button {
   background-color: white;
   color: #000;
@@ -65,4 +67,17 @@
   background-color: #ff7a3d;
   color: white;
   transform: translateX(5px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .salad {
+    justify-content: center;
+    padding: 0 6%;
+    text-align: center;
+  }
+
+  .salad-text h2 {
+    font-size: 2.2rem;
+  }
 }

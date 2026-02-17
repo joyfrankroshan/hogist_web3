@@ -1,8 +1,9 @@
 /* SECTION */
 .healthymeals {
   padding: 90px 8%;
-  background: #fff;
+  background: #ffffff;
 }
+
 
 /* HEADER TEXT */
 .healthymeals-text {
@@ -17,13 +18,15 @@
   letter-spacing: 2px;
   margin-bottom: 12px;
 }
-.healthymeals-text h5::before{
-    content: "";
+
+.healthymeals-text h5::before {
+  content: "";
   width: 20px;
   height: 20px;
   background-color: #ff7a2f;
   border-radius: 50%;
   display: inline-block;
+  margin-right: 8px;
 }
 
 .healthymeals-text h2 {
@@ -53,7 +56,6 @@
 .healthy-card {
   position: relative;
   border-radius: 30px;
-  transition: transform 0.35s ease;
 }
 
 /* IMAGE */
@@ -90,7 +92,7 @@
 /* ACTIVE BADGE */
 .step-badge.active {
   background: #ff7a2f;
-  color: #fff;
+  color: #ffffff;
 }
 
 /* CONTENT BOX */
@@ -102,7 +104,7 @@
   background: #0f2a26;
   padding: 28px;
   border-radius: 26px;
-  color: #fff;
+  color: #ffffff;
   text-align: center;
 }
 
@@ -132,3 +134,143 @@
     font-size: 32px;
   }
 }
+/* ================= LARGE SCREENS (1600px+) ================= */
+@media (min-width: 1600px) {
+  .healthymeals {
+    padding: 120px 12%;
+  }
+
+  .healthymeals-text h2 {
+    font-size: 50px;
+  }
+
+  .healthy-card img {
+    height: 420px;
+  }
+}
+
+/* ================= DESKTOP (1200px – 1599px) ================= */
+@media (max-width: 1599px) {
+  .healthy-card img {
+    height: 360px;
+  }
+}
+
+/* ================= LAPTOP (1024px – 1199px) ================= */
+@media (max-width: 1199px) {
+  .healthymeals {
+    padding: 80px 6%;
+  }
+
+  .healthymeals-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .healthy-card img {
+    height: 320px;
+  }
+
+  .step-badge {
+    font-size: 20px;
+    padding: 14px 20px;
+  }
+}
+
+/* ================= TABLET (768px – 1023px) ================= */
+@media (max-width: 1023px) {
+  .healthymeals {
+    padding: 70px 6%;
+  }
+
+  .healthymeals-text h2 {
+    font-size: 36px;
+  }
+
+  .healthymeals-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .healthy-card img {
+    height: 300px;
+  }
+
+  .card-content {
+    padding: 22px;
+  }
+}
+
+/* ================= SMALL TABLET / LARGE MOBILE (600px – 767px) ================= */
+@media (max-width: 767px) {
+  .healthymeals {
+    padding: 60px 5%;
+  }
+
+  .healthymeals-text h2 {
+    font-size: 30px;
+  }
+
+  .healthymeals-text p {
+    font-size: 15px;
+  }
+
+  .healthymeals-cards {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .healthy-card img {
+    height: 280px;
+  }
+
+  .step-badge {
+    top: -24px;
+    font-size: 18px;
+    padding: 12px 18px;
+  }
+}
+
+/* ================= MOBILE (≤ 480px) ================= */
+@media (max-width: 480px) {
+  .healthymeals {
+    padding: 50px 16px;
+  }
+
+  .healthymeals-text h2 {
+    font-size: 26px;
+  }
+
+  .healthymeals-text p {
+    font-size: 14px;
+  }
+
+  .healthy-card img {
+    height: 240px;
+  }
+
+  .card-content h3 {
+    font-size: 16px;
+  }
+
+  .card-content p {
+    font-size: 13px;
+  }
+}
+@media (max-width: 720px) {
+  .client-card-box{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:12px;
+    padding: 0 20px;
+    max-width: 200px;
+  }
+  .client-content{
+    flex:0;
+  }
+.client-overlay{
+  padding: auto;
+}
+}
+  
+

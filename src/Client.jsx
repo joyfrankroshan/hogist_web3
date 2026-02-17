@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "./Client.css";
+
 import clientbg from "./assets/clientbackground.jpg";
 import healthymeals3 from "./assets/healthymeals3.jpg";
 import nutriousmeals4 from "./assets/nutriousmeals4.jpg";
@@ -27,18 +29,50 @@ const testimonials = [
   },
 ];
 
+/* SLIDE VARIANTS */
+const slideVariants = {
+  enter: (direction) => ({
+    x: direction > 0 ? 300 : -300,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+  exit: (direction) => ({
+    x: direction > 0 ? -300 : 300,
+    opacity: 0,
+    transition: { duration: 0.5, ease: "easeIn" },
+  }),
+};
+
 function Client() {
-  const [index, setIndex] = useState(0);
+  const [[index, direction], setIndex] = useState([0, 1]);
 
-  const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  /* AUTO SLIDE */
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex(([prev]) => [
+        (prev + 1) % testimonials.length,
+        1,
+      ]);
+    }, 4000);
 
-  const prevSlide = () => {
-    setIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
-    );
-  };
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () =>
+    setIndex(([prev]) => [
+      (prev + 1) % testimonials.length,
+      1,
+    ]);
+
+  const prevSlide = () =>
+    setIndex(([prev]) => [
+      (prev - 1 + testimonials.length) % testimonials.length,
+      -1,
+    ]);
 
   return (
     <div className="client">
@@ -47,10 +81,10 @@ function Client() {
       </div>
 
       <div className="client-overlay">
-        {/* Header */}
+        {/* HEADER */}
         <div className="client-text">
           <div>
-            <h5> CLIENT REVIEWS</h5>
+            <h5>CLIENT REVIEWS</h5>
             <h3>
               Discover What Our Clients Say{" "}
               <span>About Our Catering.</span>
@@ -63,42 +97,49 @@ function Client() {
           </div>
         </div>
 
-        {/* Card */}
-        {/* Card */}
-<div className="client-card-box">
-  <div className="client-content">
-    <img src={clientlogo} alt="" className="client-logo" />
+        {/* SLIDER */}
+        <div style={{ overflow: "hidden", maxWidth: "1100px" }}>
+          <AnimatePresence custom={direction} mode="wait">
+            <motion.div
+              key={index}
+              className="client-card-box"
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+            >
+              <div className="client-content">
+                <img src={clientlogo} alt="" className="client-logo" />
 
-    <p>{testimonials[index].text}</p>
+                <p>{testimonials[index].text}</p>
+                <span className="orange-line"></span>
 
-    {/* Orange line below paragraph */}
-    <span className="orange-line"></span>
+                <h5>{testimonials[index].name}</h5>
+                <h6>Client</h6>
+              </div>
 
-    <h5>{testimonials[index].name}</h5>
-    <h6>Clients</h6>
-  </div>
+              <div className="client-image-box">
+                <img src={testimonials[index].img} alt="" />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-  <div className="client-image-box">
-    <img src={testimonials[index].img} alt="" />
-  </div>
-</div>
-
-{/* ✅ DOTS AFTER CARD BOX */}
-<div className="card-dots">
-  {testimonials.map((_, i) => (
-    <span
-      key={i}
-      className={`dot ${index === i ? "active" : ""}`}
-      onClick={() => setIndex(i)}
-    ></span>
-  ))}
-
-</div>
-
-
+        {/* DOTS */}
+        <div className="card-dots">
+          {testimonials.map((_, i) => (
+            <span
+              key={i}
+              className={`dot ${index === i ? "active" : ""}`}
+              onClick={() =>
+                setIndex([i, i > index ? 1 : -1])
+              }
+            ></span>
+          ))}
         </div>
       </div>
-    
+    </div>
   );
 }
 

@@ -1,16 +1,37 @@
 import React from "react";
+import { motion } from "framer-motion";
 import "./Salad.css";
-import saladImg from "./assets/salad.jpg";
+
+/* TEXT FROM LEFT ANIMATION */
+const textAnim = {
+  hidden: { x: -80, opacity: 0 },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.9,
+      ease: "easeOut",
+    },
+  },
+};
 
 function Salad() {
   return (
-    <div className="salad">
+    <section className="salad">
       <div className="salad-overlay"></div>
 
-      <div className="salad-text">
+      {/* TEXT ONLY ANIMATES */}
+      <motion.div
+        className="salad-text"
+        variants={textAnim}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.4 }}
+      >
         <h2>
-          Ready to Eat Healthier - Lets <span>Get Started</span> Today.
+          Ready to Eat Healthier – Lets <span>Get Started</span> Today.
         </h2>
+
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
           tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
@@ -19,8 +40,8 @@ function Salad() {
         <button className="salad-button">
           Contact Us →
         </button>
-      </div>
-    </div>
+      </motion.div>
+    </section>
   );
 }
 

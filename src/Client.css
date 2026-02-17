@@ -3,13 +3,15 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  height: 100dvh;
 }
 
 /* Background image */
 .client-background img {
   width: 100%;
-  height: 100vh;
+height: inherit;
   object-fit: cover;
+  
 }
 
 /* Dark overlay */
@@ -73,6 +75,10 @@
   gap: 40px;
   max-width: 1100px;
 }
+.client-card-box {
+  will-change: transform;
+}
+
 
 /* Left content */
 .client-content {
@@ -91,6 +97,10 @@
   color: #e6f2ef;
   margin-bottom: 0;
 }
+.client-card-box {
+  will-change: transform, opacity;
+}
+
 
 /* Orange line below paragraph */
 .orange-line {
@@ -148,3 +158,15 @@
   border-radius: 10px;
   background: #ffffff;
 }
+
+
+
+@media (max-width: 720px) {
+  .client {
+  height: auto;
+}
+
+.client-overlay{
+  position:   unset;
+  padding: 10px;
+}}

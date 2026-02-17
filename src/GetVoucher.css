@@ -16,6 +16,17 @@
   z-index: -2;
 }
 
+.getVoucher-text {
+  will-change: transform, opacity;
+}
+
+.getVoucher-round img,
+.getVoucher-email,
+.getVoucher-text h2,
+.getVoucher-text p {
+  will-change: transform, opacity;
+}
+
 .getVoucher-bg img {
   width: 100%;
   height: 100%;

@@ -19,6 +19,11 @@
   text-transform: uppercase;
   margin-bottom: 16px;
 }
+.faq-pill,
+.customized-img img {
+  will-change: transform, opacity;
+}
+
 
 .Customizedfaqs-text h5::before {
   content: "●";
