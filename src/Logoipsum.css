@@ -45,8 +45,7 @@
 /* logos */
 .logo-track img {
   height: 50px;
-  opacity: 0.75;
-  filter: grayscale(100%);
+  
   transition: all 0.3s ease;
   cursor: pointer;
 }

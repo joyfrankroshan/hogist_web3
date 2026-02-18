@@ -14,11 +14,17 @@
 }
 
 .popularmenu-text h5 {
-  color: #ff7a3d;
+  color: gray;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
+.popularmenu-text h5::before{
+  content:"●";
+  color:orangered;
+  margin-right: 6px;
+}
+
 
 .popularmenu-text h2 {
   font-size: 42px;

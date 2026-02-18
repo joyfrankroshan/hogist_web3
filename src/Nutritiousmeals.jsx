@@ -60,11 +60,7 @@ function NutritiousMeals() {
             Nutritious Meals.
           </h2>
 
-          <p className="nm-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Ut elit tellus, luctus nec ullamcorper mattis.
-          </p>
-
+          
           <div className="nm-features">
             <button
               className={`nm-pill ${activeIndex === 0 ? "selected" : ""}`}
@@ -97,20 +93,40 @@ function NutritiousMeals() {
         </motion.div>
 
         {/* RIGHT */}
-        <div className={`nm-right ${activeImages.length === 2 ? "double" : ""}`}>
-          {activeImages.map((img, i) => (
-            <motion.img
-              key={i}
-              src={img}
-              alt="Nutritious meals"
-              variants={rightAnim}
-              custom={i}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-            />
-          ))}
-        </div>
+      {/* RIGHT */}
+<div className={`nm-right ${activeImages.length === 2 ? "double" : ""}`}>
+
+  {/* RIGHT TEXT (ABOVE IMAGE) */}
+  <div className="nm-right-text">
+    <p className="nm-desc">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Ut elit tellus, luctus nec ullamcorper mattis.
+    </p>
+
+    <div className="nm-checks">
+      <span>✔ Clean Food</span>
+      <span>✔ Good Materials</span>
+    </div>
+  </div>
+
+  {/* IMAGES */}
+  <div className="nm-images">
+    {activeImages.map((img, i) => (
+      <motion.img
+        key={i}
+        src={img}
+        alt="Nutritious meals"
+        variants={rightAnim}
+        custom={i}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+      />
+    ))}
+  </div>
+
+</div>
+
 
       </div>
     </section>
