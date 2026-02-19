@@ -128,7 +128,15 @@ function Hero() {
             <span className="nav-home nav-link">Pages</span>
             <div className="dropdown-menu">
               <a href="#">Contact Us</a>
-              <a href="#">Gallery</a>
+              <a href="#">Faqs</a>
+              <a  href="#">Testimonials</a>
+                                          <a  href="#">404</a>
+
+                            <a  href="#">Blog</a>
+                                                        <a  href="#">Single Blog</a>
+
+
+
             </div>
           </div>
 
