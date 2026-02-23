@@ -1,56 +1,13 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import "./Customizedfaqs.css";
-import herobackground1 from "./assets/herobackground1.jpg";
-import Customized from "./assets/customized.jpg";
 
-/* ANIMATIONS */
-const leftAnim = {
-  hidden: { x: -80, opacity: 0 },
-  show: {
-    x: 0,
-    opacity: 1,
-    transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
-
-const rightAnim = {
-  hidden: { x: 80, opacity: 0 },
-  show: {
-    x: 0,
-    opacity: 1,
-    transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
-
-const pillAnim = {
-  hidden: { y: 40, opacity: 0 },
-  show: (i) => ({
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.2 + i * 0.15,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
-
-const imageUp = {
-  hidden: { y: 60, opacity: 0 },
-  show: (i) => ({
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.4 + i * 0.2,
-      duration: 0.7,
-      ease: "easeOut",
-    },
-  }),
-};
+import img1 from "./assets/customized.jpg";
+import img2 from "./assets/herobackground1.jpg";
+import img3 from "./assets/young.jpg";
 
 function Customizedfaqs() {
-  const [activeIndex, setActiveIndex] = useState(2);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const faqs = [
     {
@@ -69,82 +26,88 @@ function Customizedfaqs() {
 
   return (
     <section className="Customizedfaqs">
-      <div className="customized-pills">
+      <div className="faq-wrapper">
 
-        {/* LEFT COLUMN */}
-        <motion.div
-          variants={leftAnim}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <div className="Customizedfaqs-text">
-            <h5>Customized FAQs</h5>
-            <h2>
-              Common <span>questions and answers</span> about services.
-            </h2>
+        {/* LEFT */}
+        <div>
+          <h5 className="faq-sub">Customized FAQs</h5>
+          <h2 className="faq-title">
+            Common <span>Questions And Answers</span>
+            <br /> About Services.
+          </h2>
+
+          <div className="faq-list">
+            {faqs.map((item, i) => {
+              const isOpen = activeIndex === i;
+
+              return (
+                <motion.div
+                  key={i}
+                  className={`faq-item ${isOpen ? "active" : ""}`}
+                  onClick={() =>
+                    setActiveIndex(isOpen ? null : i)
+                  }
+                  layout
+                >
+                  {/* QUESTION */}
+                  <div className="faq-question">
+                    {item.q}
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      ↓
+                    </motion.span>
+                  </div>
+
+                  {/* ANSWER */}
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        className="faq-answer"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: "easeOut" }}
+                      >
+                        <p>{item.a}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              );
+            })}
           </div>
+        </div>
 
-          {/* FAQ PILLS */}
-          {faqs.map((item, index) => (
-            <motion.div
-              key={index}
-              className={`faq-pill ${activeIndex === index ? "active" : ""}`}
-              onClick={() => setActiveIndex(index)}
-              variants={pillAnim}
-              custom={index}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-            >
-              <div className="faq-question">
-                {item.q}
-                <span>{activeIndex === index ? "↑" : "↓"}</span>
-              </div>
-
-              {activeIndex === index && (
-                <p className="faq-answer">{item.a}</p>
-              )}
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* RIGHT COLUMN */}
-        <motion.div
-          className="faq-right"
-          variants={rightAnim}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <p className="faq-right-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut elit
-            tellus.
+        {/* RIGHT */}
+        <div className="faq-right">
+          <p className="faq-desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut elit tellus.
           </p>
-
           <button className="faq-btn">Get Answered →</button>
 
-          <div className="customized-img">
-            <motion.img
-              src={Customized}
-              alt="Customized food"
-              variants={imageUp}
-              custom={0}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-            />
-            <motion.img
-              src={herobackground1}
-              alt="Healthy background"
-              variants={imageUp}
-              custom={1}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-            />
-          </div>
-        </motion.div>
+        <div className="faq-images">
+  <AnimatePresence mode="sync">
+    {[0, 1].map((slot) => {
+      const imgIndex = (activeIndex + slot) % 3;
+      const imgSrc = [img1, img2, img3][imgIndex];
+
+      return (
+        <motion.img
+          key={`${slot}-${imgIndex}`}
+          src={imgSrc}
+          alt=""
+          initial={{ x: 60, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -60, opacity: 0 }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
+        />
+      );
+    })}
+  </AnimatePresence>
+</div>
+        </div>
 
       </div>
     </section>

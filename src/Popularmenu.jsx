@@ -91,18 +91,32 @@ function Popularmenu() {
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <img src={card.img} alt={card.title} />
-            <h3>{card.title}</h3>
+<div className="popular-image">
+  <img src={card.img} alt={card.title} />
+</div>            <h3>{card.title}</h3>
 
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit ut elit
               tellus.
             </p>
 
-            <div className="popular-checkbok">
-              <p>cleanfood</p>
-              <p>good materials</p>
-            </div>
+           <div className="popular-checkbok">
+  <div className="check-item">
+    <span className="check-icon">✔</span>
+    <span>Clean Food</span>
+  </div>
+  <div className="check-item">
+    <span className="check-icon">✔</span>
+    <span>Good Materials</span>
+  </div>
+</div>
+
+<div className="popular-card-footer">
+  <span className="see-detail">
+    See Detail <span className="arrow">→</span>
+  </span>
+  <div className="playy-btn">▶</div>
+</div>
           </motion.div>
         ))}
       </div>

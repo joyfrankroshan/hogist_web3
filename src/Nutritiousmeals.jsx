@@ -55,11 +55,10 @@ function NutritiousMeals() {
         >
           <h5 className="nm-subtitle">Who We Are</h5>
 
-          <h2 className="nm-title">
-            We Committed To <span>Healthy Living</span> And Providing
-            Nutritious Meals.
-          </h2>
-
+<h2 className="nm-title">
+  We Committed To <span>Healthy Living</span> <br />
+  And Providing Nutritious Meals.
+</h2>
           
           <div className="nm-features">
             <button
@@ -104,26 +103,44 @@ function NutritiousMeals() {
     </p>
 
     <div className="nm-checks">
-      <span>✔ Clean Food</span>
-      <span>✔ Good Materials</span>
-    </div>
+  <div className="nm-check">
+    <span className="check-box">✔</span>
+    <span>Clean Food</span>
+  </div>
+
+  <div className="nm-check">
+    <span className="check-box">✔</span>
+    <span>Good Materials</span>
+  </div>
+</div>
   </div>
 
   {/* IMAGES */}
-  <div className="nm-images">
-    {activeImages.map((img, i) => (
-      <motion.img
-        key={i}
-        src={img}
-        alt="Nutritious meals"
-        variants={rightAnim}
-        custom={i}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-      />
-    ))}
-  </div>
+ <div className="nm-images">
+  {activeImages.map((img, i) => (
+    <motion.img
+      key={i}
+      src={img}
+      alt="Nutritious meals"
+      variants={rightAnim}
+      custom={i}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}
+    />
+  ))}
+
+  {/* SHOW PHONE CARD ONLY FOR DELIVERY CATERING */}
+  {activeIndex === 2 && (
+    <div className="nm-call-card">
+      <div className="call-icon">📞</div>
+      <div className="call-text">
+        <strong>Lets Talk</strong>
+        <p>123 456 789</p>
+      </div>
+    </div>
+  )}
+</div>
 
 </div>
 

@@ -72,8 +72,13 @@ function Recepe() {
             whileInView="show"
             viewport={{ once: true }}
           >
-            <img src={img} alt="" className="recepe-img" />
-            <h3>
+<motion.img
+  src={img}
+  alt=""
+  className="recepe-img"
+  whileHover={{ scale: 1.05, rotate: 3 }}
+  transition={{ duration: 0.35, ease: "easeOut" }}
+/>            <h3>
               {i === 0 &&
                 "Our Commitment To Fresh and Clean Ingredients"}
               {i === 1 &&
