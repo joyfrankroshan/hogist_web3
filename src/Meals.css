@@ -206,7 +206,23 @@
 .meals-card3 {
   will-change: transform, opacity;
 }
+/* FLEXIBLE HIGHLIGHT */
+.flexible {
+  position: relative;
+  color:white !important;        /* orange text */
+  z-index: 1;
+}
 
+.flexible::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  bottom: 6px;
+  width: calc(100% + 16px);
+  height: 22px;
+  background: #ff7a3d;  /* white bar */
+  z-index: -1;
+}
 
 /* Mobile */
 @media (max-width: 600px) {
@@ -228,5 +244,11 @@
   .meals-card3 {
     width: 100%;
     border-radius: 22px;
+  }
+}
+@media (max-width: 600px) {
+  .flexible::before {
+    height: 18px;
+    bottom: 4px;
   }
 }

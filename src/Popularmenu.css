@@ -9,8 +9,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 60px;
   gap: 40px;
+  padding-bottom: 100px;
 }
 
 .popularmenu-text h5 {
@@ -30,6 +30,22 @@
   font-size: 42px;
   line-height: 1.2;
   max-width: 520px;
+}
+.customer {
+  position: relative;
+  color: white !important; /* force black text */
+  z-index: 1;
+}
+
+.customer::before {
+  content: "";
+  position: absolute;
+  left: -69px;
+  bottom: 10px;
+  width: calc(133% + 16px);
+  height: 20px;
+  background: #ff7a3d;      /* grey bar */
+  z-index: -1;
 }
 
 .popularmenu-text h2 span {
@@ -106,6 +122,9 @@
   padding: 25px;
   border-radius: 22px;
   transition: transform 0.3s ease;
+  position: relative;  
+  
+  
 }
 
 .popular-card:hover {
@@ -118,9 +137,16 @@
   padding: 10px;
   border-radius: 26px;
   margin-bottom: 22px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-}
 
+  /* 👇 POP-OUT MAGIC */
+  margin-top: -90px;          /* image comes out */
+  z-index: 2;
+  position: relative;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    transition: transform 0.35s ease;
+
+}
 /* IMAGE */
 .popular-image img {
   width: 100%;
@@ -128,6 +154,9 @@
   object-fit: cover;
   border-radius: 18px;
   display: block;
+}
+.popular-card:hover .popular-image {
+  transform: translateY(-6px);   /* subtle lift */
 }
 .popular-card h3 {
   font-size: 20px;
@@ -233,7 +262,14 @@
   animation: playPulse 1.6s ease-out infinite;
   z-index: -1;
 }
+.playy-btn {
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
 
+.playy-btn:hover {
+  background: #ff7a3d;   /* orange */
+  color: #ffffff;        /* white icon */
+}
 /* ANIMATION */
 @keyframes playPulse {
   0% {
@@ -254,15 +290,7 @@
   transform: scale(1.1);
 }
 /* RESPONSIVE */
-@media (max-width: 992px) {
-  .popularmenu-text {
-    flex-direction: column;
-  }
 
-  .popularmenu-cards {
-    grid-template-columns: 1fr;
-  }
-}
 
 @media (max-width: 768px) {
   .customer-top {
@@ -277,5 +305,25 @@
 
   .popular-image img {
     aspect-ratio: 16 / 10;
+  }
+}
+@media (max-width: 992px) {
+  .popularmenu-text {
+    flex-direction: column;
+    padding-bottom: 80px;
+  }
+
+  .popularmenu-cards {
+    grid-template-columns: repeat(1, 1fr);
+    gap:70px;
+  }
+
+  .popular-image {
+    margin-top: -70px;   /* less pop */
+  }
+}
+@media (max-width: 768px) {
+  .popular-card-inner {
+    gap: 20px;
   }
 }

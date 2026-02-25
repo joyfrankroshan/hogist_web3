@@ -29,7 +29,7 @@ function Salad() {
         viewport={{ once: true, amount: 0.4 }}
       >
         <h2>
-          Ready to Eat Healthier – Lets <span>Get Started</span> Today.
+          <span className="ready">Ready to Eat</span> Healthier – Lets <span>Get Started</span> Today.
         </h2>
 
         <p>

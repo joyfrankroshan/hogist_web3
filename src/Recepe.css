@@ -82,6 +82,7 @@
   width: 100%;
   height: 220px;
   object-fit: cover;
+  border-radius:25px;
 }
 
 /* CLEAN FOOD BADGE */
@@ -162,6 +163,23 @@
   content: " →";
   margin-left: 6px;
 }
+/* YOUR HIGHLIGHT */
+.discover {
+  position: relative;
+  color: black !important;   /* force WHITE text */
+  z-index: 1;
+}
+
+.discover::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  bottom: 13px;
+  width: calc(100% + 16px);
+  height: 22px;
+  background: #eae6df;         /* orange bar */
+  z-index: -1;
+}
 
 
 /* ===== RESPONSIVE ===== */
@@ -182,5 +200,11 @@
 
   .recepe-card {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .discover::before {
+    height: 18px;
+    bottom: 4px;
   }
 }

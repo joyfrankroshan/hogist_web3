@@ -86,7 +86,7 @@ function Client() {
           <div>
             <h5>CLIENT REVIEWS</h5>
             <h3>
-              Discover What Our Clients Say{" "}
+              <span className="discover">Discover </span>What Our Clients Say{" "}
               <span>About Our Catering.</span>
             </h3>
           </div>

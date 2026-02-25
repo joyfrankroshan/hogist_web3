@@ -32,7 +32,7 @@ function Customizedfaqs() {
         <div>
           <h5 className="faq-sub">Customized FAQs</h5>
           <h2 className="faq-title">
-            Common <span>Questions And Answers</span>
+           <span className="common">Common</span>  <span>Questions And Answers</span>
             <br /> About Services.
           </h2>
 

@@ -31,8 +31,8 @@
 
 .healthymeals-text h2 {
   font-size: 44px;
-  font-weight: 800;
-  color: #0f2a26;
+  font-weight: 600;
+  color: black;
   margin-bottom: 15px;
 }
 
@@ -98,16 +98,21 @@
 /* CONTENT BOX */
 .card-content {
   position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
+  bottom: -26px;          /* push outside image */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78%;             /* SMALLER than image */
   background: #0f2a26;
-  padding: 28px;
-  border-radius: 26px;
+  padding: 26px 24px;
+  border-radius: 30px;
   color: #ffffff;
   text-align: center;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  margin-bottom: 21px;
 }
-
+.healthy-card {
+  padding-bottom: 40px;
+}
 .card-content h3 {
   font-size: 18px;
   margin-bottom: 8px;
@@ -117,7 +122,23 @@
   font-size: 14px;
   opacity: 0.85;
 }
+.simple {
+  position: relative;
+  color: #000000 !important; /* force black text */
+  z-index: 1;
+}
 
+.simple::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  bottom: 6px;
+  width: calc(100% + 16px);
+  height: 20px;
+  background: #eae6df;      /* grey bar */
+  z-index: -1;
+  border-radius: 4px;
+}
 /* RESPONSIVE */
 @media (max-width: 1100px) {
   .healthymeals-cards {
@@ -271,6 +292,63 @@
 .client-overlay{
   padding: auto;
 }
+}
+@media (max-width: 1199px) {
+  .card-content {
+    width: 82%;
+    padding: 24px 22px;
+    bottom: -24px;
+  }
+
+  .healthy-card {
+    padding-bottom: 36px;
+  }
+}
+@media (max-width: 1023px) {
+  .card-content {
+    width: 86%;
+    padding: 22px 20px;
+    bottom: -22px;
+    border-radius: 26px;
+  }
+
+  .healthy-card {
+    padding-bottom: 34px;
+  }
+}
+
+@media (max-width: 767px) {
+  .card-content {
+    width: 90%;
+    padding: 20px 18px;
+    bottom: -20px;
+    border-radius: 24px;
+  }
+
+  .healthy-card {
+    padding-bottom: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-content {
+    width: 94%;
+    padding: 18px 16px;
+    bottom: -18px;
+    border-radius: 22px;
+  }
+
+  .card-content h3 {
+    font-size: 16px;
+  }
+
+  .card-content p {
+    font-size: 13px;
+  }
+
+  .healthy-card {
+    padding-bottom: 30px;
+  }
 }
   
 

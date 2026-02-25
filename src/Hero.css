@@ -188,7 +188,7 @@
   position: absolute;
   left: -6px;
   bottom: 8px;
-  width: 68%;
+  width: calc(100% + 12px); /* ✅ fits text exactly */
   height: 22px;
   background: #f66c09;
   z-index: -1;
@@ -236,6 +236,7 @@
   display: grid;
   grid-template-columns: repeat(2, 190px);
   gap: 22px;
+  height:380px;
 }
 
 .stat {
@@ -245,11 +246,17 @@
 
 .stat.dark {
   background: #183332;
+  height:200px;
+  width:200px;
+  padding:70px;
 }
 
 .stat.light {
   background: #f6f1e6;
   color: #000;
+   height:200px;
+  width:200px;
+  padding:70px;
 }
 
 /* ================= HAMBURGER ================= */
@@ -352,7 +359,6 @@
   align-items: center;
   justify-content: center;
   font-size: 13px;
-  transition: transform 0.3s ease;
 }
 
 .mobile-parent span.rotate {
@@ -385,6 +391,31 @@
   font-size: 15px;
   border: none;
   cursor: pointer;
+}
+/* MOBILE MENU HOVER */
+.mobile-parent:hover,
+.mobile-parent:active,
+.mobile-parent:focus-within {
+  color: #f66c09;
+}
+.mobile-submenu a {
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.mobile-submenu a:hover,
+.mobile-submenu a:active {
+  background: #f6f1e6;
+  color: #f66c09;
+}
+.mobile-link:hover,
+.mobile-link:active {
+  color: #183332;
+}
+.mobile-btn:hover,
+.mobile-btn:active {
+  background: #183332;
 }
 
 
@@ -431,9 +462,21 @@
 
 
   .stat {
-    width: 100%;
-    padding: 26px 22px;
+    width: 70%;
+    padding: 20px 20px;
     text-align: left;
+  }
+  .stat.light{
+    padding:20px 20px;
+    width:70%;
+  }
+  .stat.dark{
+    padding:20px 20px;
+    width:70%;
+  }
+  .herobutton{
+    display:flex;
+    flex-direction: column;
   }
 }
 
@@ -448,4 +491,10 @@
     
   }
 
+}
+@media (max-width: 768px) {
+  .herotext .highlight::before {
+    height: 18px;
+    bottom: 6px;
+  }
 }

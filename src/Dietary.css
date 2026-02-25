@@ -38,9 +38,22 @@
 }
 
 .dietary-text h2 span {
-  color: #ff9b6a;
+  color: #0f2a26;        /* text stays black */
+  position: relative;
+  z-index: 1;
+  color:#ff7a2f;
 }
 
+.dietary-text h2 span::before {
+  content: "";
+  position: absolute;
+  left: -1px;            /* extend bar slightly */
+  bottom: 20px;
+  width: calc(40% + 12px);
+  height: 18px;
+  background: #eae6df;   /* grey bar */
+  z-index: -1;
+}
 .dietary-text p {
   color: #777;
   line-height: 1.6;
@@ -109,7 +122,15 @@
   flex-direction: column;
   gap: 30px;
 }
+/* PLAY BUTTON HOVER */
+.play-btn {
+  transition: all 0.3s ease;
+}
 
+.play-btn:hover {
+  background: #ff7a2f; /* orange */
+  color: #ffffff;      /* white icon */
+}
 /* FEATURE BOXES */
 .dietary-features {
   display: grid;
@@ -186,4 +207,25 @@
   .dietary-features {
     grid-template-columns: 1fr;
   }
+}
+@media (max-width: 768px) {
+  .dietary-text h2 span::before {
+    height: 14px;
+    bottom: 6px;
+  }
+}
+@media (max-width: 480px) {
+  .dietary-text h2 span::before {
+    height: 24px;
+    bottom: 70px;
+    left: -4px;
+    width: calc(271% + 8px);
+  }
+}
+@media(min-width:319){
+    .dietary-text h2 span::before {
+        width:calc(100%+2px);
+
+    }
+
 }

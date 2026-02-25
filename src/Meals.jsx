@@ -39,7 +39,7 @@ function Meals() {
       >
         <h5>Meals Package</h5>
         <h3>
-          Flexible Pricing Options For <span>Healthy food</span> package.
+          <span className="flexible">Flexible</span> Pricing Options For <span>Healthy food</span> package.
         </h3>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit

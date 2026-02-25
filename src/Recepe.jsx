@@ -51,7 +51,7 @@ function Recepe() {
       >
         <h5>Blog Content</h5>
         <h2>
-          Lets Discover Our Healthy Eating <span>Tips & Recipes.</span>
+          Lets <span className="discover">Discover</span> Our Healthy Eating <span>Tips & Recipes.</span>
         </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.

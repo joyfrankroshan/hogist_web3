@@ -43,7 +43,7 @@ function GetVoucher() {
         </div>
 
         <h2>
-          Get Your First Meal – Claim Your{" "}
+          Get <span className="your">Your</span> First Meal – Claim Your{" "}
           <span>20% Off Voucher.</span>
         </h2>
 

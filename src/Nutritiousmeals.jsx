@@ -56,7 +56,8 @@ function NutritiousMeals() {
           <h5 className="nm-subtitle">Who We Are</h5>
 
 <h2 className="nm-title">
-  We Committed To <span>Healthy Living</span> <br />
+  <span className="committed">We Committed</span>{" "}
+  To <span>Healthy Living</span> <br />
   And Providing Nutritious Meals.
 </h2>
           
@@ -118,18 +119,25 @@ function NutritiousMeals() {
   {/* IMAGES */}
  <div className="nm-images">
   {activeImages.map((img, i) => (
-    <motion.img
-      key={i}
-      src={img}
-      alt="Nutritious meals"
-      variants={rightAnim}
-      custom={i}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.3 }}
-    />
-  ))}
+  <motion.div
+    key={i}
+    className="nm-image-wrapper"
+    variants={rightAnim}
+    custom={i}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, amount: 0.3 }}
+  >
+    <img src={img} alt="Nutritious meals" />
 
+    {activeIndex === 0 && i === 0 && (
+  <div className="nm-play-btn">
+    <span className="play-pulse"></span>
+    ▶
+  </div>
+)}
+  </motion.div>
+))}
   {/* SHOW PHONE CARD ONLY FOR DELIVERY CATERING */}
   {activeIndex === 2 && (
     <div className="nm-call-card">

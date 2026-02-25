@@ -72,7 +72,7 @@ function Healthymeals() {
         <h5>How Its Work</h5>
 
         <h2>
-          Simple Steps To Enjoy Our <span>Healthy Clean</span> Meals.
+         <span className="simple">Simple Steps</span>  To Enjoy Our <span>Healthy Clean</span> Meals.
         </h2>
 
         <p>

@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 import herologo from "./assets/herologo.jpg";
 import herologoMobile from "./assets/headernewlogo.jpg";
-
 import bg1 from "./assets/herobackground.jpg";
-import bg2 from "./assets/herobackground1.jpg";
-import bg3 from "./assets/herobackground2.jpg";
 
 import heroround1 from "./assets/heroround1.jpg";
 import heroround2 from "./assets/heroround2.jpg";
@@ -14,7 +11,33 @@ import heroround3 from "./assets/heroround3.jpg";
 
 import "./Hero.css";
 
-/* COUNTER */
+/* ================= ANIMATIONS ================= */
+
+/* TEXT FROM LEFT */
+const textAnim = {
+  hidden: { x: -80, opacity: 0 },
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.9, ease: "easeOut" },
+  },
+};
+
+/* STATS FROM BOTTOM */
+const cardAnim = {
+  hidden: { y: 80, opacity: 0 },
+  show: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.2 + i * 0.2,
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  }),
+};
+
+/* ================= COUNTER ================= */
 function Counter({ end, start }) {
   const [count, setCount] = useState(0);
 
@@ -39,9 +62,6 @@ function Counter({ end, start }) {
 }
 
 function Hero() {
-  const backgrounds = [bg1, bg2, bg3];
-
-  const [currentBg, setCurrentBg] = useState(0);
   const [loading, setLoading] = useState(true);
   const [startCount, setStartCount] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -54,89 +74,59 @@ function Hero() {
 
   useEffect(() => {
     if (!loading) {
-      const t = setTimeout(() => setStartCount(true), 800);
+      const t = setTimeout(() => setStartCount(true), 500);
       return () => clearTimeout(t);
     }
   }, [loading]);
-
-  useEffect(() => {
-    const i = setInterval(() => {
-      setCurrentBg((p) => (p + 1) % backgrounds.length);
-    }, 6000);
-    return () => clearInterval(i);
-  }, []);
 
   if (loading) return <div className="page-loader"></div>;
 
   return (
     <div className="hero">
-      {/* BACKGROUND */}
-      <AnimatePresence>
-        <motion.div
-          key={currentBg}
-          className="hero-bg-motion"
-          style={{ backgroundImage: `url(${backgrounds[currentBg]})` }}
-          initial={{ opacity: 0, scale: 1.08 }}
-          animate={{ opacity: 1, scale: 1.18 }}
-          exit={{ opacity: 0 }}
-          transition={{ opacity: { duration: 1.2 }, scale: { duration: 6 } }}
-        />
-      </AnimatePresence>
-
+      {/* ===== STATIC BACKGROUND ===== */}
+      <div
+        className="hero-bg-motion"
+        style={{ backgroundImage: `url(${bg1})` }}
+      />
       <div className="hero-overlay"></div>
 
-      {/* TOP BAR */}
+      {/* ===== TOP BAR ===== */}
       <div className="hero-top">
         <div className="herologo">
           <img src={herologo} alt="logo" />
         </div>
 
         <div className="hamburger" onClick={() => setMenuOpen(true)}>
-          <span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
 
-        {/* DESKTOP NAV */}
         <div className="heronav">
-          <a href="#" className="nav-home">Home</a>
+          <a className="nav-home">Home</a>
 
           <div className="nav-dropdown">
             <span className="nav-home nav-link">About</span>
             <div className="dropdown-menu">
-              <a href="#">About Us</a>
-              <a href="#">Our Team</a>
+              <a>About Us</a>
+              <a>Our Team</a>
             </div>
           </div>
 
           <div className="nav-dropdown">
             <span className="nav-home nav-link">Service</span>
             <div className="dropdown-menu">
-              <a href="#">Our Service</a>
-              <a href="#">Detail Service</a>
-              <a href="#">Our Package</a>
+              <a>Our Service</a>
+              <a>Detail Service</a>
+              <a>Our Package</a>
             </div>
           </div>
 
           <div className="nav-dropdown">
             <span className="nav-home nav-link">Menus</span>
             <div className="dropdown-menu">
-              <a href="#">Our Menus</a>
-              <a href="#">Detail Menu</a>
-            </div>
-          </div>
-
-          <div className="nav-dropdown">
-            <span className="nav-home nav-link">Pages</span>
-            <div className="dropdown-menu">
-              <a href="#">Contact Us</a>
-              <a href="#">Faqs</a>
-              <a  href="#">Testimonials</a>
-                                          <a  href="#">404</a>
-
-                            <a  href="#">Blog</a>
-                                                        <a  href="#">Single Blog</a>
-
-
-
+              <a>Our Menus</a>
+              <a>Detail Menu</a>
             </div>
           </div>
 
@@ -144,11 +134,18 @@ function Hero() {
         </div>
       </div>
 
-      {/* MOBILE OFFCANVAS */}
+      {/* ===== MOBILE OFFCANVAS MENU ===== */}
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
         <div className="mobile-header">
           <img src={herologoMobile} alt="mobile logo" />
-          <button onClick={() => { setMenuOpen(false); setOpenSubmenu(null); }}>✕</button>
+          <button
+            onClick={() => {
+              setMenuOpen(false);
+              setOpenSubmenu(null);
+            }}
+          >
+            ✕
+          </button>
         </div>
 
         <nav className="mobile-nav">
@@ -156,7 +153,12 @@ function Hero() {
 
           {/* ABOUT */}
           <div className="mobile-item">
-            <div className="mobile-parent" onClick={() => setOpenSubmenu(openSubmenu === "about" ? null : "about")}>
+            <div
+              className="mobile-parent"
+              onClick={() =>
+                setOpenSubmenu(openSubmenu === "about" ? null : "about")
+              }
+            >
               About
               <span className={openSubmenu === "about" ? "rotate" : ""}>⌄</span>
             </div>
@@ -170,7 +172,12 @@ function Hero() {
 
           {/* SERVICE */}
           <div className="mobile-item">
-            <div className="mobile-parent" onClick={() => setOpenSubmenu(openSubmenu === "service" ? null : "service")}>
+            <div
+              className="mobile-parent"
+              onClick={() =>
+                setOpenSubmenu(openSubmenu === "service" ? null : "service")
+              }
+            >
               Service
               <span className={openSubmenu === "service" ? "rotate" : ""}>⌄</span>
             </div>
@@ -185,7 +192,12 @@ function Hero() {
 
           {/* MENUS */}
           <div className="mobile-item">
-            <div className="mobile-parent" onClick={() => setOpenSubmenu(openSubmenu === "menus" ? null : "menus")}>
+            <div
+              className="mobile-parent"
+              onClick={() =>
+                setOpenSubmenu(openSubmenu === "menus" ? null : "menus")
+              }
+            >
               Menus
               <span className={openSubmenu === "menus" ? "rotate" : ""}>⌄</span>
             </div>
@@ -199,7 +211,12 @@ function Hero() {
 
           {/* PAGES */}
           <div className="mobile-item">
-            <div className="mobile-parent" onClick={() => setOpenSubmenu(openSubmenu === "pages" ? null : "pages")}>
+            <div
+              className="mobile-parent"
+              onClick={() =>
+                setOpenSubmenu(openSubmenu === "pages" ? null : "pages")
+              }
+            >
               Pages
               <span className={openSubmenu === "pages" ? "rotate" : ""}>⌄</span>
             </div>
@@ -215,23 +232,27 @@ function Hero() {
             )}
           </div>
 
-          <button className="heronav-button mobile-btn">Get A Quotation</button>
+          <button className="heronav-button mobile-btn">
+            Get A Quotation
+          </button>
         </nav>
       </div>
 
-      {/* CONTENT */}
-      <div className="herotext">
+      {/* ===== TEXT ===== */}
+      <motion.div className="herotext" variants={textAnim} initial="hidden" animate="show">
         <h4>Gourca Catering</h4>
         <h2>
           <span className="highlight">Your Trusted</span>{" "}
           <span>Healthy Catering</span> And Clean Food.
         </h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+          tellus, luctus nec ullamcorper mattis.
+        </p>
+      </motion.div>
 
-</p>
-      </div>
-
-      <div className="herobutton">
+      {/* ===== BUTTON + TRUST ===== */}
+      <motion.div className="herobutton" variants={textAnim} initial="hidden" animate="show">
         <button className="getstarted-btn">Get Started</button>
         <div className="heroround">
           <img src={heroround1} />
@@ -239,14 +260,31 @@ function Hero() {
           <img src={heroround3} />
           <p><strong>890+</strong> People Trust Us.</p>
         </div>
+      </motion.div>
 
-      </div>
-
+      {/* ===== STATS ===== */}
       <div className="herostats">
-        <div className="stat dark"><h3><Counter end={250} start={startCount} />+</h3><p>Unique Menus</p></div>
-        <div className="stat light"><h3><Counter end={375} start={startCount} />+</h3><p>Corporate Clients</p></div>
-        <div className="stat light"><h3><Counter end={98} start={startCount} />%</h3><p>Customer Rate</p></div>
-        <div className="stat dark"><h3><Counter end={75} start={startCount} />+</h3><p>City Branch</p></div>
+        {[
+          { end: 250, label: "Unique Menus", type: "dark", suffix: "+" },
+          { end: 375, label: "Corporate Clients", type: "light", suffix: "+" },
+          { end: 98, label: "Customer Rate", type: "light", suffix: "%" },
+          { end: 75, label: "City Branch", type: "dark", suffix: "+" },
+        ].map((item, i) => (
+          <motion.div
+            key={i}
+            className={`stat ${item.type}`}
+            variants={cardAnim}
+            custom={i}
+            initial="hidden"
+            animate="show"
+          >
+            <h3>
+              <Counter end={item.end} start={startCount} />
+              {item.suffix}
+            </h3>
+            <p>{item.label}</p>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

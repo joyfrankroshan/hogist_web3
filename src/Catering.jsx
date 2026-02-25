@@ -74,7 +74,7 @@ function Catering() {
         <h5 className="catering-subtitle">What We Do</h5>
 
         <h2 className="catering-main">
-          Deliciously <span>Healthy Catering</span> for Every Occasion
+          <span className="delicious">Deliciously</span> <span>Healthy Catering</span> for Every Occasion
         </h2>
 
         <p>

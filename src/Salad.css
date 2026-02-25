@@ -38,9 +38,26 @@
   line-height: 1.2;
   margin-bottom: 20px;
 }
+.ready {
+  position: relative;
+  color: white !important; /* force black text */
+  z-index: 1;
+}
+
+.ready::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  bottom: 9px;
+  width: calc(100% + 16px);
+  height: 20px;
+  background:#ff7a3d;      
+  z-index: -1;
+}
 
 .salad-text h2 span {
-  color: #ff7a3d;
+  color: #ffb38a;
+  z-index: 1;
 }
 
 .salad-text p {

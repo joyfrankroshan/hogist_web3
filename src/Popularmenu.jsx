@@ -53,7 +53,8 @@ function Popularmenu() {
         <div>
           <h5>Popular Menu</h5>
           <h2>
-            Customer <span>Favorites Food</span> Based From Choicing.
+            <span className="customer">Customer</span>{" "}
+            <span>Favorites Food</span> Based From Choicing.
           </h2>
         </div>
 
@@ -91,32 +92,37 @@ function Popularmenu() {
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
           >
-<div className="popular-image">
-  <img src={card.img} alt={card.title} />
-</div>            <h3>{card.title}</h3>
+            {/* 🔑 IMAGE + CONTENT AS SINGLE BLOCK */}
+            <div className="popular-card-inner">
+              <div className="popular-image">
+                <img src={card.img} alt={card.title} />
+              </div>
 
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit ut elit
-              tellus.
-            </p>
+              <h3>{card.title}</h3>
 
-           <div className="popular-checkbok">
-  <div className="check-item">
-    <span className="check-icon">✔</span>
-    <span>Clean Food</span>
-  </div>
-  <div className="check-item">
-    <span className="check-icon">✔</span>
-    <span>Good Materials</span>
-  </div>
-</div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut elit
+                tellus.
+              </p>
 
-<div className="popular-card-footer">
-  <span className="see-detail">
-    See Detail <span className="arrow">→</span>
-  </span>
-  <div className="playy-btn">▶</div>
-</div>
+              <div className="popular-checkbok">
+                <div className="check-item">
+                  <span className="check-icon">✔</span>
+                  <span>Clean Food</span>
+                </div>
+                <div className="check-item">
+                  <span className="check-icon">✔</span>
+                  <span>Good Materials</span>
+                </div>
+              </div>
+
+              <div className="popular-card-footer">
+                <span className="see-detail">
+                  See Detail <span className="arrow">→</span>
+                </span>
+                <div className="playy-btn">▶</div>
+              </div>
+            </div>
           </motion.div>
         ))}
       </div>
