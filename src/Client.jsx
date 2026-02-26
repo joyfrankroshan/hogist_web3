@@ -92,8 +92,8 @@ function Client() {
           </div>
 
           <div className="client-buttons">
-            <button onClick={prevSlide}>←</button>
-            <button onClick={nextSlide}>→</button>
+            <button  className="clientbutton"onClick={prevSlide}>←</button>
+            <button className="clientbutton"onClick={nextSlide}>→</button>
           </div>
         </div>
 

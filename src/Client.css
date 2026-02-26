@@ -81,7 +81,28 @@ height: inherit;
   margin-left: 10px;
   font-size: 18px;
   cursor: pointer;
+  
 }
+/* Arrow buttons */
+.clientbutton {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  margin-left: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  background: #ffffff;      /* default bg */
+  color: #000000;           /* default arrow color */
+  transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.clientbutton:hover {
+  background: #ff7a3d;      /* orange */
+  color: #ffffff;           /* white arrow */
+}
+
 
 /* ================= CARD ================= */
 

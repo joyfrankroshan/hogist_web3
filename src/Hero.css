@@ -237,6 +237,7 @@
   grid-template-columns: repeat(2, 190px);
   gap: 22px;
   height:380px;
+  z-index: 2;
 }
 
 .stat {
