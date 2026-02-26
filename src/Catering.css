@@ -65,6 +65,14 @@
   color: #777;
   line-height: 1.6;
 }
+/* ---------- THUNDER ICON ABOVE H2 ---------- */
+.catering-thunder {
+  width: 60px;
+  height: 60px;
+  margin: 8px auto 6px; /* center + spacing like image */
+  display:block;
+  margin-left:580px;
+}
 
 /* ---------- GRID ---------- */
 .catering-cards {

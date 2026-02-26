@@ -7,6 +7,9 @@ import catering2 from "./assets/catering2.jpg";
 import catering3 from "./assets/catering3.jpg";
 import catering4 from "./assets/catering4.jpg";
 import arrowImg from "./assets/catering.jpg";
+import thundericon from "./assets/thunder.jpg";
+
+
 
 /* TEXT ANIMATION (FROM LEFT) */
 const textAnim = {
@@ -36,6 +39,7 @@ const cardAnim = {
 };
 
 function Catering() {
+  const [activeCard, setActiveCard] = React.useState(null);
   const cards = [
     {
       img: catering1,
@@ -60,28 +64,36 @@ function Catering() {
   ];
 
   return (
+    
+    
+
+
     <section className="catering">
       {/* TEXT */}
-      <motion.div
-        className="catering-text"
-        variants={textAnim}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <img src={arrowImg} alt="arrow" className="catering-arrow" />
+<motion.div
+  className="catering-text"
+  variants={textAnim}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.3 }}
+>
+  <img src={arrowImg} alt="arrow" className="catering-arrow" />
 
-        <h5 className="catering-subtitle">What We Do</h5>
+  <h5 className="catering-subtitle">What We Do</h5>
 
-        <h2 className="catering-main">
-          <span className="delicious">Deliciously</span> <span>Healthy Catering</span> for Every Occasion
-        </h2>
+  {/* ✅ THUNDER ICON */}
+  <img src={thundericon} alt="thunder" className="catering-thunder" />
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-          tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-        </p>
-      </motion.div>
+  <h2 className="catering-main">
+    <span className="delicious">Deliciously</span>{" "}
+    <span>Healthy Catering</span> for Every Occasion
+  </h2>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+    tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+  </p>
+</motion.div>
 
       {/* CARDS */}
       <div className="catering-cards">

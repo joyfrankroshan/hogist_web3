@@ -98,7 +98,7 @@ function Client() {
         </div>
 
         {/* SLIDER */}
-        <div style={{ overflow: "hidden", maxWidth: "1100px" }}>
+        <div style={{ overflow: "hidden", maxWidth: "1400px", margin: "0 auto" }}>
           <AnimatePresence custom={direction} mode="wait">
             <motion.div
               key={index}

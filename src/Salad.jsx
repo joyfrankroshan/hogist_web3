@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./Salad.css";
+import appleicon from "./assets/apple.png"
 
 /* TEXT FROM LEFT ANIMATION */
 const textAnim = {
@@ -22,25 +23,27 @@ function Salad() {
 
       {/* TEXT ONLY ANIMATES */}
       <motion.div
-        className="salad-text"
-        variants={textAnim}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.4 }}
-      >
-        <h2>
-          <span className="ready">Ready to Eat</span> Healthier – Lets <span>Get Started</span> Today.
-        </h2>
+  className="salad-text"
+  variants={textAnim}
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.4 }}
+>
+  {/* ✅ ICON ABOVE HEADING */}
+  <img src={appleicon} alt="apple" className="salad-icon" />
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-          tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-        </p>
+  <h2>
+    <span className="ready">Ready to Eat</span> Healthier – Lets{" "}
+    <span>Get Started</span> Today.
+  </h2>
 
-        <button className="salad-button">
-          Contact Us →
-        </button>
-      </motion.div>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+    tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+  </p>
+
+  <button className="salad-button">Contact Us →</button>
+</motion.div>
     </section>
   );
 }

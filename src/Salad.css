@@ -24,6 +24,13 @@
   );
   z-index: 1;
 }
+/* ---------- SALAD ICON ---------- */
+.salad-icon {
+  width: 50px;
+  margin-bottom: 14px; /* spacing like image */
+  display: block;
+  margin-left:142px;
+}
 
 /* TEXT */
 .salad-text {

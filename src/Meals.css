@@ -50,39 +50,50 @@
   display: flex;
   justify-content: center;
   align-items: stretch;
+  overflow: visible;
 }
 
-/* ================= CARD BASE ================= */
+/* ================= BASE CARD ================= */
 .meals-card1,
 .meals-card2,
 .meals-card3 {
-  text-align: left;
-  padding: 40px 32px;
-}
-
-/* ================= LEFT CARD ================= */
-/* LEFT CARD – tilt to right */
-.meals-card1 {
-  background: #18302f;
-  width: 300px;
-  border-radius: 30px 10px 10px 30px;
-}
-
-/* MIDDLE CARD – stronger tilt */
-.meals-card2 {
-  background: #e66a00;
-  width: 320px;
-  padding: 50px 32px;
   position: relative;
-  transform: translateY(-20px);
-  border-radius: 40px 12px 12px 40px;
+  width: 360px;
+  min-height: 700px;
+  padding: 60px 32px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* RIGHT CARD – tilt to left */
+/* ================= SIDE CARDS (BEHIND) ================= */
+.meals-card1,
 .meals-card3 {
   background: #18302f;
-  width: 300px;
-  border-radius: 10px 30px 30px 10px;
+  z-index: 2;
+  transform: translateY(30px) scale(0.95);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.meals-card1 {
+  border-radius: 36px 14px 14px 36px;
+}
+
+.meals-card3 {
+  border-radius: 14px 36px 36px 14px;
+}
+
+/* ================= MIDDLE CARD (FRONT) ================= */
+.meals-card2 {
+  background: #e66a00;
+  width: 400px;
+  min-height: 780px;
+  padding: 80px 42px 70px;
+  z-index: 5;
+  transform: translateY(-40px) scale(1);
+  border-radius: 30px;
+  box-shadow: 0 45px 90px rgba(0, 0, 0, 0.35);
 }
 
 /* ================= BADGE ================= */
@@ -98,20 +109,16 @@
   letter-spacing: 1px;
 }
 
-/* ================= TITLES ================= */
-.meals-card1 h4,
-.meals-card2 h4,
-.meals-card3 h4 {
+/* ================= TEXT ================= */
+.meals-card h4 {
   font-size: 20px;
   margin-bottom: 10px;
 }
 
-.meals-card1 p,
-.meals-card2 p,
-.meals-card3 p {
+.meals-card p {
   font-size: 14px;
   color: #d4e2df;
-  margin-bottom: 28px;
+  margin-bottom: 40px;
 }
 
 /* ================= PRICE ================= */
@@ -121,7 +128,7 @@
   padding: 12px 20px;
   border-radius: 30px;
   font-size: 26px;
-  margin-bottom: 28px;
+  margin-bottom: 36px;
   display: inline-block;
 }
 
@@ -130,7 +137,7 @@
   padding: 14px 22px;
   border-radius: 30px;
   font-size: 28px;
-  margin-bottom: 30px;
+  margin-bottom: 36px;
   display: inline-block;
 }
 
@@ -140,7 +147,7 @@
   text-decoration: none;
   color: #ffffff;
   font-size: 14px;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
   padding-left: 24px;
   position: relative;
 }
@@ -149,20 +156,20 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: #ff7a3d;
-  font-weight: bold;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 /* ================= BUTTON ================= */
 .meals-card button {
-  margin-top: 28px;
+  margin-top: auto;
   width: 100%;
   padding: 14px 0;
   border-radius: 30px;
   border: none;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  font-size: 14px;
 }
 
 .meals-card1 button,
@@ -174,6 +181,97 @@
 .meals-card2 button {
   background: #ffffff;
   color: #e66a00;
+}
+
+/* ================= FLEXIBLE HIGHLIGHT ================= */
+.flexible {
+  position: relative;
+  color: white !important;
+  z-index: 1;
+}
+
+.flexible::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  bottom: 6px;
+  width: calc(100% + 16px);
+  height: 22px;
+  background: #ff7a3d;
+  z-index: -1;
+}
+.meals-card1,
+.meals-card2,
+.meals-card3 {
+  position: relative;
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+.meals-card2 {
+  z-index: 10;                         /* 🔥 highest */
+  transform: translateY(-40px);        /* lifted */
+}
+.meals-card1 {
+  z-index: 3;
+  transform: translateX(40px) translateY(30px) scale(0.95);
+}
+.meals-card3 {
+  z-index: 3;
+  transform: translateX(-40px) translateY(30px) scale(0.95);
+}
+.meals-card1,
+.meals-card3 {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.meals-card2 {
+  box-shadow: 0 45px 90px rgba(0,0,0,0.35);
+}
+.meals-card2 {
+  min-height: 780px;         /* ⬆ taller than others */
+  z-index: 10;               /* on top */
+  padding-top: 80px;
+  padding-bottom: 70px;
+  transform: translateY(-45px); /* lifted */
+}
+.meals-card1,
+.meals-card3 {
+  min-height: 680px;
+  z-index: 3;
+  transform: translateY(30px) scale(0.95);
+}
+.meals-card1 {
+  transform: translateX(40px) translateY(30px) scale(0.95);
+}
+
+.meals-card3 {
+  transform: translateX(-40px) translateY(30px) scale(0.95);
+}
+.meals-card {
+  overflow: visible;
+}
+/* Card 1 & 3 default */
+.meals-card1 button,
+.meals-card3 button {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Card 2 default */
+.meals-card2 button {
+  background: #ffffff;
+  color: #e66a00;
+}
+/* Card 1 & 3 → Orange bg + White text */
+.meals-card1 button:hover,
+.meals-card3 button:hover {
+  background: #ff7a3d;
+  color: #ffffff;
+}
+
+/* Card 2 → Black bg + White text */
+.meals-card2 button:hover {
+  background: #000000;
+  color: #ffffff;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -194,34 +292,24 @@
   }
 
   .meals-card1,
-  .meals-card2,
   .meals-card3 {
     width: 48%;
-    border-radius: 22px;
+    transform: none;
+  }
+
+  .meals-card2 {
+    width: 52%;
     transform: none;
   }
 }
-.meals-card1,
-.meals-card2,
-.meals-card3 {
-  will-change: transform, opacity;
-}
-/* FLEXIBLE HIGHLIGHT */
-.flexible {
-  position: relative;
-  color:white !important;        /* orange text */
-  z-index: 1;
-}
-
-.flexible::before {
-  content: "";
-  position: absolute;
-  left: -8px;
-  bottom: 6px;
-  width: calc(100% + 16px);
-  height: 22px;
-  background: #ff7a3d;  /* white bar */
-  z-index: -1;
+@media (max-width: 600px) {
+  .meals-card1,
+  .meals-card2,
+  .meals-card3 {
+    min-height: unset;
+    transform: none;
+    z-index: 1;
+  }
 }
 
 /* Mobile */
@@ -243,10 +331,12 @@
   .meals-card2,
   .meals-card3 {
     width: 100%;
-    border-radius: 22px;
+    min-height: unset;
+    padding: 48px 28px;
+    transform: none;
+    z-index: 1;
   }
-}
-@media (max-width: 600px) {
+
   .flexible::before {
     height: 18px;
     bottom: 4px;

@@ -18,6 +18,8 @@
   padding: 50px 90px;
   color: #ffffff;
   overflow: hidden;
+    background-color: #000;
+
 }
 
 /* ================= VIDEO-STYLE BACKGROUND ================= */
@@ -26,7 +28,8 @@
   inset: 0;
   background-size: cover;
   background-position: center;
-  z-index: 0;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* ================= OVERLAY ================= */
@@ -54,6 +57,16 @@
   content: "●";
   color: #f66c09;
   margin-right: 6px;
+}
+.heroround-text {
+  display: flex;
+  flex-direction: column;   /* ✅ forces two lines */
+  margin-left: 14px;
+}
+
+.heroround-text p {
+  margin: 0;
+  line-height: 1.7;
 }
 
 /* ================= TOP BAR ================= */
@@ -208,12 +221,18 @@
 .getstarted-btn {
   background: #ffffff;
   color: #000;
-  padding: 18px 56px;
+  padding: 10px 56px;
   border-radius: 50px;
   border: none;
   cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
+/* ✅ HOVER EFFECT */
+.getstarted-btn:hover {
+  background: #f66c09;   /* orange */
+  color: #ffffff;        /* white text */
+}
 /* ================= TRUST ================= */
 .heroround {
   display: flex;
@@ -238,6 +257,17 @@
   gap: 22px;
   height:380px;
   z-index: 2;
+}
+.stat h3 {
+  font-size: 30px;        /* BIG number */
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.stat p {
+  font-size: 16px;
+  opacity: 0.85;
 }
 
 .stat {
@@ -418,6 +448,55 @@
 .mobile-btn:active {
   background: #183332;
 }
+/* ================= STAT ICON ================= */
+.stat {
+  position: relative; /* required for icon positioning */
+}
+
+/* ICON BASE */
+/* ================= STAT ICON ================= */
+.stat {
+  position: relative;
+}
+
+/* ICON BASE */
+.stat-icon {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+/* DARK CARD → WHITE ICON */
+ 
+
+/* LIGHT CARD → ORANGE ICON */
+
+/* ================= STAT ICON (FINAL FIX) ================= */
+
+.stat {
+  position: relative;
+}
+
+/* ICON BASE */
+.stat-icon {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  z-index: 10;          /* 🔥 ensures visibility */
+  background: none;    /* no background */
+}
+
+/* DARK CARD → WHITE ICON */
+
+
+/* LIGHT CARD → ORANGE ICON */
+
 
 
 /* ================= MOBILE ================= */
@@ -486,14 +565,13 @@
     display: none;
   }
 }
-@media(min-width:320px){
+
+@media (max-width: 768px) {
   .getstarted-btn {
+    max-width: 300px;
     padding:10px 20px;
     
   }
-
-}
-@media (max-width: 768px) {
   .herotext .highlight::before {
     height: 18px;
     bottom: 6px;

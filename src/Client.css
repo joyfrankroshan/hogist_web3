@@ -43,7 +43,7 @@ height: inherit;
 .client-text h3 .discover::before {
   content: "";
   position: absolute;
-  left: -8px;
+  left: -19px;
   bottom: 6px;
   width: calc(100% + 16px);
   height: 22px;
@@ -74,8 +74,8 @@ height: inherit;
 
 /* Arrow buttons */
 .client-buttons button {
-  width: 45px;
-  height: 45px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: none;
   margin-left: 10px;
@@ -108,11 +108,15 @@ height: inherit;
 
 .client-card-box {
   background: #17302f;
-  border-radius: 25px;
-  padding: 40px;
+  border-radius: 26px;
+  padding: 48px;          /* ⬇ was 60px */
   display: flex;
-  gap: 40px;
-  max-width: 1100px;
+  gap: 48px;              /* ⬇ was 60px */
+  max-width: 1180px;      /* ⬇ was 1300px */
+  margin: 0 auto;
+}
+.client-image-box img {
+  height: 380px;
 }
 .client-card-box {
   will-change: transform;
@@ -130,11 +134,10 @@ height: inherit;
 }
 
 .client-content p {
-  font-size: 18px;
-  line-height: 1.7;
+  font-size: 30px ;      /* ⬆ was ~18px */
+  line-height: 1.85;    /* better readability */
   font-style: italic;
   color: #e6f2ef;
-  margin-bottom: 0;
 }
 .client-card-box {
   will-change: transform, opacity;
@@ -164,14 +167,14 @@ height: inherit;
 
 /* Right image */
 .client-image-box {
-  flex: 1;
+  flex: 1.05;
 }
 
 .client-image-box img {
   width: 100%;
-  height: 280px;
+  height: 340px;        /* ⬅ BIG IMAGE */
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 24px;
 }
 
 /* ================= DOTS AFTER CARD ================= */
@@ -213,5 +216,78 @@ height: inherit;
   .client-text h3 .discover::before {
     height: 18px;
     bottom: 4px;
+  }
+}
+@media (max-width: 1024px) {
+  .client-overlay {
+    padding: 50px;
+  }
+
+  .client-card-box {
+    padding: 45px;
+    gap: 40px;
+  }
+
+  .client-image-box img {
+    height: 320px;
+  }
+
+  .client-content p {
+    font-size: 18px;
+  }
+}
+@media (max-width: 767px) {
+  .client {
+    height: auto;
+  }
+
+  .client-overlay {
+    position: relative;
+    padding: 24px;
+  }
+
+  .client-text {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .client-text h3 {
+    font-size: 28px;
+  }
+
+  /* CARD STACKS */
+  .client-card-box {
+    flex-direction: column;
+    padding: 24px;
+    gap: 24px;
+  }
+
+  /* IMAGE ON TOP */
+  .client-image-box img {
+    height: 260px;
+    border-radius: 20px;
+  }
+
+  .client-content p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .client-buttons {
+    align-self: flex-end;
+  }
+}
+@media (max-width: 480px) {
+  .client-text h3 {
+    font-size: 24px;
+  }
+
+  .client-image-box img {
+    height: 220px;
+  }
+
+  .client-card-box {
+    padding: 20px;
   }
 }

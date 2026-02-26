@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-
+import { motion, AnimatePresence } from "framer-motion";
 import herologo from "./assets/herologo.jpg";
 import herologoMobile from "./assets/headernewlogo.jpg";
 import bg1 from "./assets/herobackground.jpg";
+import bg2 from "./assets/herobackground1.jpg";
+import bg3 from "./assets/herobackground2.jpg";
 
 import heroround1 from "./assets/heroround1.jpg";
 import heroround2 from "./assets/heroround2.jpg";
 import heroround3 from "./assets/heroround3.jpg";
+import notepenicon from "./assets/notepen.png";
+import handshakeicon from "./assets/handshake.png";
+import smileicon from "./assets/smile.png";
+import homeicon from "./assets/home.png";
+
+
+
+
 
 import "./Hero.css";
 
@@ -60,12 +69,65 @@ function Counter({ end, start }) {
 
   return <>{count}</>;
 }
+const bgSlideAnim = {
+  initial: {
+    x: "100%",
+    scale: 1.1,
+  },
+  animate: {
+    x: "0%",
+    scale: 1.25,
+    transition: {
+      x: { duration: 1.4, ease: "easeInOut" },
+      scale: { duration: 7, ease: "linear" }, // slow zoom
+    },
+  },
+};
+
+const bgVariants = {
+  initial: {
+    x: "100%",
+    scale: 1.15,
+  },
+  animate: {
+    x: "0%",
+    scale: 1.25,
+    transition: {
+      x: { duration: 1.2, ease: "easeInOut" },
+      scale: { duration: 7, ease: "linear" },
+    },
+  },
+  exit: {
+    x: "-100%",
+    transition: {
+      duration: 1.2,
+      ease: "easeInOut",
+    },
+  },
+};
+
 
 function Hero() {
   const [loading, setLoading] = useState(true);
   const [startCount, setStartCount] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
+  const [currentBg, setCurrentBg] = useState(0);
+  const backgrounds = [bg1, bg2, bg3];
+  useEffect(() => {
+  backgrounds.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+  });
+}, []);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentBg((prev) => (prev + 1) % backgrounds.length);
+  }, 5000); // change bg every 5s
+
+  return () => clearInterval(interval);
+}, []);
 
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 1000);
@@ -84,10 +146,25 @@ function Hero() {
   return (
     <div className="hero">
       {/* ===== STATIC BACKGROUND ===== */}
-      <div
-        className="hero-bg-motion"
-        style={{ backgroundImage: `url(${bg1})` }}
-      />
+<motion.div
+  key={currentBg}
+  className="hero-bg-motion"
+  style={{
+    backgroundImage: `url(${backgrounds[currentBg]})`,
+  }}
+  initial={{
+    scale: 1.15,
+    backgroundPosition: "0% 50%",
+  }}
+  animate={{
+    scale: 1.3,
+    backgroundPosition: "100% 50%",
+  }}
+  transition={{
+    duration: 12,
+    ease: "linear",
+  }}
+/>
       <div className="hero-overlay"></div>
 
       {/* ===== TOP BAR ===== */}
@@ -253,39 +330,73 @@ function Hero() {
 
       {/* ===== BUTTON + TRUST ===== */}
       <motion.div className="herobutton" variants={textAnim} initial="hidden" animate="show">
-        <button className="getstarted-btn">Get Started</button>
+        <button className="getstarted-btn">Get Started →</button>
         <div className="heroround">
-          <img src={heroround1} />
-          <img src={heroround2} />
-          <img src={heroround3} />
-          <p><strong>890+</strong> People Trust Us.</p>
-        </div>
+  <img src={heroround1} />
+  <img src={heroround2} />
+  <img src={heroround3} />
+
+  <div className="heroround-text">
+    <strong><p>890+ People Trust Us.</p></strong> 
+    <p>Lorem ipsum dolor sit amet</p>
+  </div>
+</div>
       </motion.div>
 
       {/* ===== STATS ===== */}
-      <div className="herostats">
-        {[
-          { end: 250, label: "Unique Menus", type: "dark", suffix: "+" },
-          { end: 375, label: "Corporate Clients", type: "light", suffix: "+" },
-          { end: 98, label: "Customer Rate", type: "light", suffix: "%" },
-          { end: 75, label: "City Branch", type: "dark", suffix: "+" },
-        ].map((item, i) => (
-          <motion.div
-            key={i}
-            className={`stat ${item.type}`}
-            variants={cardAnim}
-            custom={i}
-            initial="hidden"
-            animate="show"
-          >
-            <h3>
-              <Counter end={item.end} start={startCount} />
-              {item.suffix}
-            </h3>
-            <p>{item.label}</p>
-          </motion.div>
-        ))}
-      </div>
+      {/* ===== STATS ===== */}
+<div className="herostats">
+  {[
+    {
+      end: 250,
+      label: "Unique Menus",
+      type: "dark",
+      suffix: "+",
+      icon: notepenicon,
+    },
+    {
+      end: 375,
+      label: "Corporate Clients",
+      type: "light",
+      suffix: "+",
+      icon: handshakeicon,
+    },
+    {
+      end: 98,
+      label: "Customer Rate",
+      type: "light",
+      suffix: "%",
+      icon: smileicon,
+    },
+    {
+      end: 75,
+      label: "City Branch",
+      type: "dark",
+      suffix: "+",
+      icon: homeicon,
+    },
+  ].map((item, i) => (
+    <motion.div
+      key={i}
+      className={`stat ${item.type}`}
+      variants={cardAnim}
+      custom={i}
+      initial="hidden"
+      animate="show"
+    >
+      {/* ICON */}
+      <img src={item.icon} alt="" className="stat-icon" />
+
+      <h3>
+        <Counter end={item.end} start={startCount} />
+        {item.suffix}
+      </h3>
+      <p>{item.label}</p>
+    </motion.div>
+  ))}
+</div>
+
+    
     </div>
   );
 }
