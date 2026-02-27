@@ -1,5 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { CiGift } from "react-icons/ci";
+import { CiStar } from "react-icons/ci";
+import { TiPinOutline } from "react-icons/ti";
+
+
 import "./Meals.css";
 
 /* TEXT FROM LEFT */
@@ -39,8 +44,9 @@ function Meals() {
       >
         <h5>Meals Package</h5>
         <h3>
-          <span className="flexible">Flexible</span> Pricing Options For <span>Healthy food</span> package.
-        </h3>
+  <span className="flexible">Flexible</span> Pricing Options For{" "}
+  <span className="healthy">Healthy food</span> package.
+</h3>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
           tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
@@ -58,9 +64,13 @@ function Meals() {
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
         >
+          <CiGift/>
           <h4>Basic Plan</h4>
           <p>A small river named Duden flows by their place and supplies</p>
-          <h2>$ 59.29 / Month</h2>
+         <div className="price-pill">
+  <span className="price">$ 89.49</span>
+  <span className="period">/ month</span>
+</div>
           <a href="#">3 meals/week</a>
           <a href="#">Customized Meals</a>
           <a href="#">Essential Food</a>
@@ -78,10 +88,15 @@ function Meals() {
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
         >
+          <CiStar/>
+          
           <span className="popular-badge">Most Popular</span>
           <h4>Standard Plan</h4>
           <p>A small river named Duden flows by their place and supplies</p>
-          <h2>$ 89.49 / Month</h2>
+          <div className="price-pill">
+  <span className="price">$ 89.49</span>
+  <span className="period">/ month</span>
+</div>
           <a href="#">5 meals/week</a>
           <a href="#">Advanced Meals</a>
           <a href="#">Priority Delivery</a>
@@ -99,9 +114,13 @@ function Meals() {
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
         >
+          <TiPinOutline/>
           <h4>Premium Plan</h4>
           <p>A small river named Duden flows by their place and supplies</p>
-          <h2>$ 149 / Month</h2>
+          <div className="price-pill">
+  <span className="price">$ 89.49</span>
+  <span className="period">/ month</span>
+</div>
           <a href="#">10 meals/week</a>
           <a href="#">Personalized Meals</a>
           <a href="#">Diet Food Optimization</a>

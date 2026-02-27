@@ -1,5 +1,5 @@
 import  "./App.css";
-import Header from "./Header";
+//import Header from "./Header";
 import Hero from "./Hero";
 import Logoipsum from "./Logoipsum";
 import Catering from "./Catering";
@@ -17,7 +17,7 @@ import Footer from "./Footer";
 function App() {
   return (
     <>
-          <Header />
+
           <Hero />
           <Logoipsum />
           <Catering />

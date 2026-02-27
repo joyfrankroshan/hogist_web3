@@ -1,17 +1,18 @@
-/* ================= SECTION ================= */
+/* SECTION */
 .meals {
-  background: radial-gradient(
-      circle at right,
-      rgba(255, 122, 61, 0.08),
-      transparent 45%
-    ),
-    #0c1a19;
+  background: radial-gradient(circle at top, #0f1b1b 0%, #071010 70%);
   padding: 120px 80px;
-  color: #ffffff;
-  text-align: center;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
 }
 
-/* ================= HEADING ================= */
+/* TEXT */
+.meals-text {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 80px;
+}
+
 .meals-text h5 {
   font-size: 13px;
   letter-spacing: 2px;
@@ -26,164 +27,13 @@
   margin-right: 8px;
 }
 
+
 .meals-text h3 {
   font-size: 42px;
   line-height: 1.3;
   margin-bottom: 18px;
 }
 
-.meals-text h3 span {
-  color: #ff7a3d;
-}
-
-.meals-text p {
-  max-width: 600px;
-  margin: auto;
-  font-size: 15px;
-  color: #cdd8d6;
-  line-height: 1.7;
-}
-
-/* ================= CARDS WRAPPER ================= */
-.meals-card {
-  margin-top: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  overflow: visible;
-}
-
-/* ================= BASE CARD ================= */
-.meals-card1,
-.meals-card2,
-.meals-card3 {
-  position: relative;
-  width: 360px;
-  min-height: 700px;
-  padding: 60px 32px;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-/* ================= SIDE CARDS (BEHIND) ================= */
-.meals-card1,
-.meals-card3 {
-  background: #18302f;
-  z-index: 2;
-  transform: translateY(30px) scale(0.95);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-}
-
-.meals-card1 {
-  border-radius: 36px 14px 14px 36px;
-}
-
-.meals-card3 {
-  border-radius: 14px 36px 36px 14px;
-}
-
-/* ================= MIDDLE CARD (FRONT) ================= */
-.meals-card2 {
-  background: #e66a00;
-  width: 400px;
-  min-height: 780px;
-  padding: 80px 42px 70px;
-  z-index: 5;
-  transform: translateY(-40px) scale(1);
-  border-radius: 30px;
-  box-shadow: 0 45px 90px rgba(0, 0, 0, 0.35);
-}
-
-/* ================= BADGE ================= */
-.popular-badge {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  background: #ff9c5a;
-  color: #fff;
-  font-size: 11px;
-  padding: 6px 14px;
-  border-radius: 20px;
-  letter-spacing: 1px;
-}
-
-/* ================= TEXT ================= */
-.meals-card h4 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.meals-card p {
-  font-size: 14px;
-  color: #d4e2df;
-  margin-bottom: 40px;
-}
-
-/* ================= PRICE ================= */
-.meals-card1 h2,
-.meals-card3 h2 {
-  background: #5e6d6b;
-  padding: 12px 20px;
-  border-radius: 30px;
-  font-size: 26px;
-  margin-bottom: 36px;
-  display: inline-block;
-}
-
-.meals-card2 h2 {
-  background: rgba(255, 255, 255, 0.25);
-  padding: 14px 22px;
-  border-radius: 30px;
-  font-size: 28px;
-  margin-bottom: 36px;
-  display: inline-block;
-}
-
-/* ================= FEATURES ================= */
-.meals-card a {
-  display: block;
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 14px;
-  margin-bottom: 18px;
-  padding-left: 24px;
-  position: relative;
-}
-
-.meals-card a::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #ffffff;
-  font-weight: 600;
-}
-
-/* ================= BUTTON ================= */
-.meals-card button {
-  margin-top: auto;
-  width: 100%;
-  padding: 14px 0;
-  border-radius: 30px;
-  border: none;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.meals-card1 button,
-.meals-card3 button {
-  background: #ffffff;
-  color: #000;
-}
-
-.meals-card2 button {
-  background: #ffffff;
-  color: #e66a00;
-}
-
-/* ================= FLEXIBLE HIGHLIGHT ================= */
 .flexible {
   position: relative;
   color: white !important;
@@ -200,90 +50,299 @@
   background: #ff7a3d;
   z-index: -1;
 }
+.meals-card1
+
+/* ONLY "Healthy food" */
+.meals-text h3 span:not(.flexible) {
+  color: #ffb38a;   /* light orange */
+}
+.meals-text h3 .healthy {
+  color: #ffb38a;   /* light orange */
+}
+
+
+.meals-text p {
+  color: #b5bcbc;
+  font-size: 15px;
+}
+
+/* CARDS WRAPPER */
+.meals-card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+    position: relative;
+
+
+}
+.meals-card1,
+.meals-card3 {
+  position: relative;
+  z-index: 1;
+  transform: translateY(10px) scale(0.97);
+  opacity: 0.95;
+    min-height: 680px;
+
+}
+.meals-card2 {
+  background: #e4630a;
+  z-index: 5;
+  transform: scale(1.1);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  padding-top: 94px;
+  padding-bottom: 56px;
+    min-height: 730px;
+
+}
+
+
+/* COMMON CARD */
 .meals-card1,
 .meals-card2,
 .meals-card3 {
+  width: 380px;
+  border-radius: 22px;
+  padding: 44px 36px 56px;
+  background: #152525;
   position: relative;
-  transition: transform 0.45s ease, box-shadow 0.45s ease;
-}
-.meals-card2 {
-  z-index: 10;                         /* 🔥 highest */
-  transform: translateY(-40px);        /* lifted */
-}
-.meals-card1 {
-  z-index: 3;
-  transform: translateX(40px) translateY(30px) scale(0.95);
-}
-.meals-card3 {
-  z-index: 3;
-  transform: translateX(-40px) translateY(30px) scale(0.95);
-}
-.meals-card1,
-.meals-card3 {
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  text-align: left;
 }
 
-.meals-card2 {
-  box-shadow: 0 45px 90px rgba(0,0,0,0.35);
-}
-.meals-card2 {
-  min-height: 780px;         /* ⬆ taller than others */
-  z-index: 10;               /* on top */
-  padding-top: 80px;
-  padding-bottom: 70px;
-  transform: translateY(-45px); /* lifted */
-}
-.meals-card1,
-.meals-card3 {
-  min-height: 680px;
-  z-index: 3;
-  transform: translateY(30px) scale(0.95);
-}
-.meals-card1 {
-  transform: translateX(40px) translateY(30px) scale(0.95);
+/* ICON */
+.meals-card1 svg,
+.meals-card2 svg,
+.meals-card3 svg {
+  font-size: 34px;
+  color: #f97316;
+  margin-bottom: 18px;
 }
 
-.meals-card3 {
-  transform: translateX(-40px) translateY(30px) scale(0.95);
-}
-.meals-card {
-  overflow: visible;
-}
-/* Card 1 & 3 default */
-.meals-card1 button,
-.meals-card3 button {
-  background: #ffffff;
-  color: #000000;
+/* TITLE */
+.meals-card h4,
+.meals-card1 h4,
+.meals-card2 h4,
+.meals-card3 h4 {
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 
-/* Card 2 default */
-.meals-card2 button {
-  background: #ffffff;
-  color: #e66a00;
+.meals-card p,
+.meals-card1 p,
+.meals-card2 p,
+.meals-card3 p {
+  font-size: 14px;
+  color: #b7c1c1;
+  margin-bottom: 26px;
 }
-/* Card 1 & 3 → Orange bg + White text */
+.meals-card3{
+  right:10px;
+}
+.meals-card1{
+  left:10px;
+
+}
+
+/* PRICE PILL */
+
+
+/* NORMAL CARDS */
+.meals-card1 .price-pill,
+.meals-card3 .price-pill {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* CENTER CARD */
+.meals-card2 .price-pill {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* PRICE */
+.price {
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* / MONTH */
+.period {
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+
+
+/* FEATURES */
+/* FEATURES LIST */
+.meals-card1 a,
+.meals-card2 a,
+.meals-card3 a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  font-size: 15px;
+  line-height: 1;
+  margin-bottom: 22px;
+
+  text-decoration: none;
+  padding-left: 0;
+}
+.meals-card1 a::before,
+.meals-card2 a::before,
+.meals-card3 a::before {
+content: "✓";
+  font-size: 16px;
+  font-weight: 700;
+  width: 18px;          /* 🔥 locks alignment */
+  display: inline-flex;
+  justify-content: center;
+}
+
+/* SIDE CARDS */
+.meals-card1 a,
+.meals-card3 a {
+  color: #d9e2e2;
+}
+/* HOVER – CARD 1 & 3 */
 .meals-card1 button:hover,
 .meals-card3 button:hover {
-  background: #ff7a3d;
+  background: #e4630a;   /* orange */
   color: #ffffff;
+  transition: all 0.25s ease;
 }
 
-/* Card 2 → Black bg + White text */
+/* HOVER – CARD 2 (CENTER) */
 .meals-card2 button:hover {
-  background: #000000;
+  background: #000000;   /* black */
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+
+
+.meals-card1 a::before,
+.meals-card3 a::before {
+  color: #ffffff;
+}
+/* ICON HOVER – CARD 1 & 3 */
+.meals-card1:hover svg,
+.meals-card3:hover svg {
+  color: #ffffff;
+  transition: color 0.25s ease;
+}
+
+/* CENTER CARD */
+.meals-card2 a {
   color: #ffffff;
 }
 
-/* ================= RESPONSIVE ================= */
+.meals-card2 a::before {
+  color: #ffffff;
+}
+.meals-card1 a:first-of-type,
+.meals-card2 a:first-of-type,
+.meals-card3 a:first-of-type {
+  margin-top: 6px;
+}
+/* BUTTON */
+/* COMMON BUTTON STYLE */
+.meals-card1 button,
+.meals-card2 button,
+.meals-card3 button {
+  width: 100%;
+  max-width: 280px;        /* same width everywhere */
+  margin: 0 auto;          /* center horizontally */
+  padding: 16px 0;
+  border-radius: 999px;
+  border: none;
+  background: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.meals-card2 button {
+  color: #e4630a;
+}
+.meals-card1 button,
+.meals-card3 button {
+  color: #0f1b1b;
+}
+.meals-card1,
+.meals-card2,
+.meals-card3 {
+  display: flex;
+  flex-direction: column;
+}
 
-/* Tablet */
-@media (max-width: 1024px) {
+.meals-card1 button,
+.meals-card2 button,
+.meals-card3 button {
+  margin-top: auto;
+}
+
+
+/* ===== MOST POPULAR CARD ===== */
+.meals-card2 {
+  background: #e4630a;
+  z-index: 5;
+  transform: scale(1.1);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  padding-top: 94px;
+  padding-bottom: 56px;
+    min-height: 730px;
+
+}
+.meals-card1,
+.meals-card2,
+.meals-card3 {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: calc(100% + 36px);   /* 🔥 extend to right edge */
+  margin-right: -18px;        /* 🔥 touch right edge */
+
+  padding: 16px 28px;
+  border-radius: 50px 0 0 50px;  /* 🔥 rounded LEFT only */
+  margin-bottom: 28px;
+}
+
+.meals-card2 svg,
+.meals-card2 p,
+.meals-card2 a {
+  color: #fff;
+}
+
+.meals-card2 a::before {
+  color: #fff;
+}
+
+
+/* POPULAR BADGE */
+.popular-badge {
+  position: absolute;
+    top: 18px;
+    right: 18px;
+    color: rgb(255, 255, 255);
+    font-size: 11px;
+    letter-spacing: 1px;
+    background: rgb(255, 156, 90);
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+@media (max-width: 1199px) {
   .meals {
-    padding: 80px 40px;
+    padding: 100px 40px;
   }
 
   .meals-text h3 {
-    font-size: 34px;
+    font-size: 38px;
   }
 
   .meals-card {
@@ -294,51 +353,77 @@
   .meals-card1,
   .meals-card3 {
     width: 48%;
+    min-height: auto;
     transform: none;
   }
 
   .meals-card2 {
-    width: 52%;
-    transform: none;
+    width: 100%;
+    order: -1;
+    transform: scale(1); /* ✅ RESET */
   }
 }
-@media (max-width: 600px) {
-  .meals-card1,
-  .meals-card2,
-  .meals-card3 {
-    min-height: unset;
-    transform: none;
-    z-index: 1;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .meals {
-    padding: 60px 20px;
+    padding: 80px 20px;
   }
 
   .meals-text h3 {
-    font-size: 28px;
+    font-size: 30px;
+    line-height: 1.4;
   }
 
   .meals-card {
     flex-direction: column;
-    gap: 25px;
+    align-items: center;
+    gap: 30px;
   }
 
   .meals-card1,
   .meals-card2,
   .meals-card3 {
     width: 100%;
-    min-height: unset;
-    padding: 48px 28px;
+    max-width: 420px;
+    min-height: auto;
     transform: none;
-    z-index: 1;
+    left: 0;
+    right: 0;
   }
 
-  .flexible::before {
-    height: 18px;
-    bottom: 4px;
+  .meals-card2 {
+    padding-top: 48px;
   }
+
+  .price-pill {
+    width: calc(100% + 24px);
+    margin-right: -12px;
+    padding: 14px 20px;
+  }
+
+  .meals-card button {
+    max-width: 100%;
+  }
+}
+
+/* DESKTOP */
+.meals-card2 {
+  background: #e4630a;
+  z-index: 5;
+  transform: scale(1.1);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  padding-top: 94px;
+  padding-bottom: 56px;
+  min-height: 730px;
+  transition: transform 0.3s ease;
+}
+/* Reduce space between last feature and button */
+.meals-card1 a:last-of-type,
+.meals-card2 a:last-of-type,
+.meals-card3 a:last-of-type {
+  margin-bottom: 10px; /* was 22px */
+}
+.meals-card1 button,
+.meals-card2 button,
+.meals-card3 button {
+  margin-top: 20px; /* instead of pure auto gap */
 }
