@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Popup from "./Popup";
 import { motion, AnimatePresence } from "framer-motion";
 import herologo from "./assets/herologo.jpg";
 import herologoMobile from "./assets/headernewlogo.jpg";
@@ -114,6 +115,15 @@ function Hero() {
   const [openSubmenu, setOpenSubmenu] = useState(null);
   const [currentBg, setCurrentBg] = useState(0);
   const backgrounds = [bg1, bg2, bg3];
+  const [showPopup, setShowPopup] = useState(false);
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setShowPopup(true);
+  }, 2000); // popup after 2 seconds
+
+  return () => clearTimeout(timer);
+}, []);
+
   useEffect(() => {
   backgrounds.forEach((src) => {
     const img = new Image();
@@ -395,6 +405,10 @@ useEffect(() => {
     </motion.div>
   ))}
 </div>
+
+{showPopup && (
+  <Popup closePopup={() => setShowPopup(false)} />
+)}
 
     
     </div>
