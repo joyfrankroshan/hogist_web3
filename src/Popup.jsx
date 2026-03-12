@@ -8,9 +8,13 @@ import axios from "axios";
 function Popup({ closePopup }) {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [message,setMessage]=useState("");
+  
+  
 
 
   const sendEmailApi = async (data) => {
+
     try {
       const res = await axios.post('https://hogist.com/api/v2/auth/send-contact-mail', data)
       console.log(res.data)
@@ -32,6 +36,7 @@ function Popup({ closePopup }) {
     if (phone.length < 10) {
       alert("please enter the valid phone number");
       return;
+    
     }
     const userData = {
 
@@ -40,9 +45,11 @@ function Popup({ closePopup }) {
       message: `The Email id of the customer is  ${email}`,
       head: "This is from the webite",
 
+
     };
 
-    sendEmailApi(userData)
+sendEmailApi(userData);
+setMessage("Successfully registered your email and phone number 🎉");
 
 
   }
@@ -90,6 +97,8 @@ function Popup({ closePopup }) {
             <button onClick={handleSubmit}>+</button>
 
           </div>
+{message && <p className="form-message">{message}</p>}
+
 
           <p className="popup-small">
             By entering your email, you agree to receive special offers from us. of <span>Terms of Service and Privacy Policy.</span> You may unsubscribe at any time.

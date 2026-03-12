@@ -11,6 +11,13 @@ align-items:center;
 z-index:5000;
 }
 
+.form-message{
+  color: green !important;
+  font-size: 15px;
+  margin-top: 8px;
+  padding-top: 0;
+  font-weight: 500;
+}
 /* MAIN POPUP */
 .popup-box{
 display:flex;
