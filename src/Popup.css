@@ -18,6 +18,19 @@ z-index:5000;
   padding-top: 0;
   font-weight: 500;
 }
+.error-message{
+  color:red !important;
+  font-size:17px;
+  font-weight: 550;
+  margin-top:8px;
+}
+
+.success-message{
+  color:green !important;
+  font-size:15px;
+  font-weight: 550;
+  margin-top:8px;
+}
 /* MAIN POPUP */
 .popup-box{
 display:flex;
@@ -399,8 +412,8 @@ align-items:center;
 justify-content:center;
 }
 .popup-close{
-    top:3px;
-    right:7px;
+    top:0px;
+    right:5px;
     font-size: 15px;
 
 

@@ -8,8 +8,8 @@ import axios from "axios";
 function Popup({ closePopup }) {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [message,setMessage]=useState("");
-  
+const [message,setMessage]=useState("");
+const [type,setType]=useState("");  
   
 
 
@@ -25,19 +25,40 @@ function Popup({ closePopup }) {
 
   const handleSubmit = () => {
     const emailpattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || !phone) {
-      alert("please enter the valid email and phonenumber");
-      return;
-    }
-    if (!emailpattern.test(email)) {
-      alert("please enter the valid email address");
-      return;
-    }
-    if (phone.length < 10) {
-      alert("please enter the valid phone number");
-      return;
-    
-    }
+   if (!email && !phone) {
+  setMessage("Please enter email and phone number");
+    setType("error");
+
+  return;
+   }
+  if (!email) {
+  setMessage("Please enter email ");
+    setType("error");
+
+  return;
+  
+}
+if (!phone) {
+  setMessage("Please enter Phonenumber ");
+    setType("error");
+
+  return;
+  
+}
+
+if (!emailpattern.test(email)) {
+  setMessage("Please enter a valid email address");
+    setType("error");
+
+  return;
+}
+
+if (phone.length < 10) {
+  setMessage("Please enter a valid phone number");
+    setType("error");
+
+  return;
+}
     const userData = {
 
       fname: 'website',
@@ -50,7 +71,7 @@ function Popup({ closePopup }) {
 
 sendEmailApi(userData);
 setMessage("Successfully registered your email and phone number 🎉");
-
+setType("success");
 
   }
 
@@ -97,8 +118,11 @@ setMessage("Successfully registered your email and phone number 🎉");
             <button onClick={handleSubmit}>+</button>
 
           </div>
-{message && <p className="form-message">{message}</p>}
-
+{message && (
+  <p className={type === "error" ? "error-message" : "success-message"}>
+    {message}
+  </p>
+)}
 
           <p className="popup-small">
             By entering your email, you agree to receive special offers from us. of <span>Terms of Service and Privacy Policy.</span> You may unsubscribe at any time.
