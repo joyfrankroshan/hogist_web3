@@ -30,7 +30,7 @@ height:600px;
 }
 /* LEFT IMAGE */
 .popup-left{
-flex:0 0 50%;   /* image takes 45% width */
+flex:0 0 50%;   
 position:relative;
 overflow:hidden;
 }
@@ -98,6 +98,18 @@ padding-top: 30px;
 display:flex;
 border:1px solid #ddd;
 }
+.email-ph{
+    display:flex;
+    border:1px solid #ddd;
+    margin-top: 10px;
+}
+.react-tel-input .country-list .country {
+  text-decoration: none !important;
+}
+
+.react-tel-input .country-list .country span {
+  text-decoration: none !important;
+}
 
 .email-box input{
 flex:1;
@@ -106,12 +118,14 @@ padding:20px;
 outline:none;
 }
 
-.email-box button{
-background:rgb(70, 66, 66);
-color:white;
-border:none;
-width:40px;
-cursor:pointer;
+
+
+.email-ph button{
+    background:rgb(70, 66, 66);
+    color:white;
+    border:none;
+    width:40px;
+    cursor:pointer;
 }
 
 /* CLOSE BUTTON */
@@ -121,8 +135,24 @@ top:10px;
 right:12px;
 background:none;
 border:none;
-font-size:18px;
+font-size:25px;
 cursor:pointer;
+}
+.react-tel-input{
+width:100%;
+}
+
+.react-tel-input .form-control{
+height:50px !important;
+border:none !important;
+width:100% !important;
+}
+
+.react-tel-input .flag-dropdown{
+height:50px !important;
+border:none !important;
+display:flex;
+align-items:center;
 }
 
 /* ================= */
@@ -221,9 +251,10 @@ width:40px;
 
 .popup-box{
 width:95%;
-height:250px;
+height:270px;
 display:flex;
 }
+
 
 /* equal space */
 .popup-left{
@@ -263,12 +294,13 @@ line-height: 1.4;
 
 /* email box smaller */
 .email-box{
-height:30px;
+height:26px;
 }
 
+
 .email-box input{
-padding:1px;
-font-size:10px;
+padding:2px 6px;
+font-size:9px;
 }
 
 /* button smaller */
@@ -276,5 +308,96 @@ font-size:10px;
 width:30px;
 font-size:14px;
 }
+.react-tel-input{
+width:100%;
+}
+/* Reduce phone input size */
+.react-tel-input .form-control{
+height:24px !important;
+font-size:9px !important;
+padding-left:34px !important;
+line-height:24px !important;
+}
+
+/* Reduce flag dropdown height */
+.react-tel-input .flag-dropdown{
+height:24px !important;
+display:flex;
+align-items:center;
+}
+
+/* Move selected flag slightly down */
+.react-tel-input .selected-flag{
+top:2px;           /* pushes the flag down a little */
+width:26px !important;
+padding:0 4px !important;
+}
+
+/* reduce dropdown width */
+.react-tel-input .country-list{
+width:155px !important;
+font-size:10px !important;
+}
+
+/* make each country item smaller */
+.react-tel-input .country-list .country{
+padding:4px 6px !important;
+display:flex;
+align-items:center;
+justify-content:flex-start;
+}
+
+/* reduce country name size */
+.react-tel-input .country-list .country-name{
+font-size:10px !important;
+}
+
+/* reduce dial code size */
+.react-tel-input .country-list .dial-code{
+font-size:10px !important;
+}
+
+/* adjust flag size */
+.react-tel-input .country-list .flag{
+transform:scale(0.8);
+}
+
+
+
+/* Keep phone input container aligned */
+.email-ph{
+height:24px;
+align-items:center;
+}
+
+/* Smaller submit button */
+.email-ph button{
+width:24px;
+font-size:11px;
+}
+
+
+
+
+.email-ph{
+align-items:center;
+height:26px;
+}
+.email-ph button{
+width:20px;
+height:26px;
+font-size:14px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+.popup-close{
+    top:3px;
+    right:7px;
+    font-size: 15px;
+
 
 }
+
+} 
+

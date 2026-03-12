@@ -1,8 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import "./Popup.css";
 import popupimg from "./assets/burgers.jpg";
+import axios from "axios";
 
 function Popup({ closePopup }) {
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+
+
+  const sendEmailApi = async (data) => {
+    try {
+      const res = await axios.post('https://hogist.com/api/v2/auth/send-contact-mail', data)
+      console.log(res.data)
+    } catch (err) {
+
+    }
+  }
+
+  const handleSubmit = () => {
+    const emailpattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !phone) {
+      alert("please enter the valid email and phonenumber");
+      return;
+    }
+    if (!emailpattern.test(email)) {
+      alert("please enter the valid email address");
+      return;
+    }
+    if (phone.length < 10) {
+      alert("please enter the valid phone number");
+      return;
+    }
+    const userData = {
+
+      fname: 'website',
+      mobile: phone,
+      message: `The Email id of the customer is  ${email}`,
+      head: "This is from the webite",
+
+    };
+
+    sendEmailApi(userData)
+
+
+  }
+
   return (
     <div className="popup-overlay">
 
@@ -28,13 +72,28 @@ function Popup({ closePopup }) {
             <input
               type="email"
               placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <button>+</button>
+          </div>
+          <div className="email-ph">
+            <PhoneInput
+              country={"in"}
+              value={phone}
+              onChange={(phone) => setPhone(phone)}
+              inputStyle={{
+                width: "100%",
+                height: "40px",
+                fontSize: "14px"
+              }}
+            />
+            <button onClick={handleSubmit}>+</button>
+
           </div>
 
           <p className="popup-small">
-By entering your email, you agree to receive special offers from us. of <span>Terms of Service and Privacy Policy.</span> You may unsubscribe at any time. 
-</p>
+            By entering your email, you agree to receive special offers from us. of <span>Terms of Service and Privacy Policy.</span> You may unsubscribe at any time.
+          </p>
 
         </div>
 
